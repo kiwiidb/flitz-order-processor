@@ -15,8 +15,8 @@ var vt *vouchertemplating.VoucherTemplater
 //Request holds the codes and the name of the template
 //(based on value of the vouchers)
 type Request struct {
-	Codes          []string
 	TemplateName   string
+	Codes          []string
 	CollectionName string
 }
 
