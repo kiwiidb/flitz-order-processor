@@ -7,7 +7,7 @@
       }
     },
     "env": {
-        "VOUCHERTEMPLATER_FIREBASEADMINCREDENTIALS": "@firebase_credentials",
+        "VOUCHERTEMPLATER_FIREBASEADMINCREDENTIALS": "@firebase-credentials",
         "VOUCHERTEMPLATER_GOOGLECLOUDSTORAGEEMAIL":"firebase-adminsdk-zatdh@vue-golang-firebase-test.iam.gserviceaccount.com",
         "VOUCHERTEMPLATER_QRCODEDIMENSION":"136",
         "VOUCHERTEMPLATER_QRCODEXCOORDINATE":"278",
