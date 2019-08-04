@@ -1,0 +1,34 @@
+{
+    "version": 2,
+    "builds": [{ "src": "*.go", "use": "@now/go" }],
+    "build": {
+      "env": {
+        "GIT_CREDENTIALS": "@git-credentials"
+      }
+    },
+    "env": {
+        "VOUCHERTEMPLATER_FIREBASEADMINCREDENTIALS": "@firebase_credentials",
+        "VOUCHERTEMPLATER_GOOGLECLOUDSTORAGEEMAIL":"firebase-adminsdk-zatdh@vue-golang-firebase-test.iam.gserviceaccount.com",
+        "VOUCHERTEMPLATER_QRCODEDIMENSION":136,
+        "VOUCHERTEMPLATER_QRCODEXCOORDINATE":278,
+        "VOUCHERTEMPLATER_QRCODEYCOORDINATE":795,
+        "VOUCHERTEMPLATER_STORAGEBUCKETURL":"vue-golang-firebase-test.appspot.com",
+        "VOUCHERTEMPLATER_TEMPLATEFOLDER":"templates",
+        "VOUCHERTEMPLATER_UPLOADEDUNZIPFOLDER":"unzipped_vouchers",
+        "VOUCHERTEMPLATER_UPLOADEDZIPFOLDER":"zipped_vouchers"
+      },
+      "routes": [
+        { "src": "/store_batch",
+          "headers": {
+                      "Access-Control-Allow-Methods": "POST, OPTIONS",
+                      "Access-Control-Allow-Origin": "*",
+                      "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+          },
+          "dest": "handler.go" 
+        },
+        { 
+          "src": "/",
+          "status": 404
+        }
+      ]
+}
