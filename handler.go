@@ -33,7 +33,7 @@ func init() {
 		logrus.Fatal(err)
 	}
 	m.PrintEnvs(vt)
-	logrus.Info(vt)
+	logrus.Info(vt.FirebaseAdminCredentials)
 	vt.InitFirebase()
 }
 
