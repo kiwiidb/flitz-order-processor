@@ -14,6 +14,7 @@
         "VOUCHERTEMPLATER_QRCODEYCOORDINATE":"795",
         "VOUCHERTEMPLATER_STORAGEBUCKETURL":"vue-golang-firebase-test.appspot.com",
         "VOUCHERTEMPLATER_TEMPLATEFOLDER":"templates",
+        "VOUCHERTEMPLATER_TEMPFOLDER":"/tmp",
         "VOUCHERTEMPLATER_UPLOADEDUNZIPFOLDER":"unzipped_vouchers",
         "VOUCHERTEMPLATER_UPLOADEDZIPFOLDER":"zipped_vouchers"
       },
