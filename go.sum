@@ -51,10 +51,14 @@ github.com/kiwiidb/bliksem-library/authentication v0.0.0-20190803142440-7228a592
 github.com/kiwiidb/bliksem-library/authentication v0.0.0-20190803142440-7228a5923ce5/go.mod h1:RvcdITPvS9WgxEANvpBK/tKDeU1Kvlv6+O2flBhisqQ=
 github.com/kiwiidb/bliksem-library/authentication v0.0.0-20190810083259-b74bfd204faa h1:CO6C030HFBsNKa8HrFGTD8BUesSgpG6lvAZFCTwVao8=
 github.com/kiwiidb/bliksem-library/authentication v0.0.0-20190810083259-b74bfd204faa/go.mod h1:RvcdITPvS9WgxEANvpBK/tKDeU1Kvlv6+O2flBhisqQ=
+github.com/kiwiidb/bliksem-library/authentication v0.0.0-20190810084924-1651a31f6ac6 h1:Dd1VOWbgjzVd6p2Rdz/RywB+bsB6Ti0wmZ6lqcI4tXk=
+github.com/kiwiidb/bliksem-library/authentication v0.0.0-20190810084924-1651a31f6ac6/go.mod h1:RvcdITPvS9WgxEANvpBK/tKDeU1Kvlv6+O2flBhisqQ=
 github.com/kiwiidb/bliksem-library/vouchertemplating v0.0.0-20190803142440-7228a5923ce5 h1:yKrNjRE2x+Lw4mspCz15XLlydMtNEeiUb5syL7SEKCE=
 github.com/kiwiidb/bliksem-library/vouchertemplating v0.0.0-20190803142440-7228a5923ce5/go.mod h1:9a0x3Ay7j8PmveGGFBW6P1+/gBXhpRzUSFpn+VK4Gpk=
 github.com/kiwiidb/bliksem-library/vouchertemplating v0.0.0-20190810083259-b74bfd204faa h1:noSSBtNBKqTNRS6sjIG1RFdsLzt9+P7U5FZpkpmbWc4=
 github.com/kiwiidb/bliksem-library/vouchertemplating v0.0.0-20190810083259-b74bfd204faa/go.mod h1:9a0x3Ay7j8PmveGGFBW6P1+/gBXhpRzUSFpn+VK4Gpk=
+github.com/kiwiidb/bliksem-library/vouchertemplating v0.0.0-20190810084924-1651a31f6ac6 h1:sCy9B+au7ZXVnVcTPdxMMZuVzlr3/PH11MLKSmbwhdI=
+github.com/kiwiidb/bliksem-library/vouchertemplating v0.0.0-20190810084924-1651a31f6ac6/go.mod h1:9a0x3Ay7j8PmveGGFBW6P1+/gBXhpRzUSFpn+VK4Gpk=
 github.com/koding/multiconfig v0.0.0-20171124222453-69c27309b2d7 h1:SWlt7BoQNASbhTUD0Oy5yysI2seJ7vWuGUp///OM4TM=
 github.com/koding/multiconfig v0.0.0-20171124222453-69c27309b2d7/go.mod h1:Y2SaZf2Rzd0pXkLVhLlCiAXFCLSXAIbTKDivVgff/AM=
 github.com/konsorten/go-windows-terminal-sequences v1.0.1/go.mod h1:T0+1ngSBFLxvqU3pZ+m/2kptfBszLMUkC4ZK/EgS/cQ=
