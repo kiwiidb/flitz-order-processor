@@ -53,12 +53,16 @@ github.com/kiwiidb/bliksem-library/authentication v0.0.0-20190810083259-b74bfd20
 github.com/kiwiidb/bliksem-library/authentication v0.0.0-20190810083259-b74bfd204faa/go.mod h1:RvcdITPvS9WgxEANvpBK/tKDeU1Kvlv6+O2flBhisqQ=
 github.com/kiwiidb/bliksem-library/authentication v0.0.0-20190810084924-1651a31f6ac6 h1:Dd1VOWbgjzVd6p2Rdz/RywB+bsB6Ti0wmZ6lqcI4tXk=
 github.com/kiwiidb/bliksem-library/authentication v0.0.0-20190810084924-1651a31f6ac6/go.mod h1:RvcdITPvS9WgxEANvpBK/tKDeU1Kvlv6+O2flBhisqQ=
+github.com/kiwiidb/bliksem-library/authentication v0.0.0-20190812143315-8ba0d69df191 h1:VcRLEFxSlVES89I21RYMv8dCoVVxusH0nzd0TmQtriU=
+github.com/kiwiidb/bliksem-library/authentication v0.0.0-20190812143315-8ba0d69df191/go.mod h1:RvcdITPvS9WgxEANvpBK/tKDeU1Kvlv6+O2flBhisqQ=
 github.com/kiwiidb/bliksem-library/vouchertemplating v0.0.0-20190803142440-7228a5923ce5 h1:yKrNjRE2x+Lw4mspCz15XLlydMtNEeiUb5syL7SEKCE=
 github.com/kiwiidb/bliksem-library/vouchertemplating v0.0.0-20190803142440-7228a5923ce5/go.mod h1:9a0x3Ay7j8PmveGGFBW6P1+/gBXhpRzUSFpn+VK4Gpk=
 github.com/kiwiidb/bliksem-library/vouchertemplating v0.0.0-20190810083259-b74bfd204faa h1:noSSBtNBKqTNRS6sjIG1RFdsLzt9+P7U5FZpkpmbWc4=
 github.com/kiwiidb/bliksem-library/vouchertemplating v0.0.0-20190810083259-b74bfd204faa/go.mod h1:9a0x3Ay7j8PmveGGFBW6P1+/gBXhpRzUSFpn+VK4Gpk=
 github.com/kiwiidb/bliksem-library/vouchertemplating v0.0.0-20190810084924-1651a31f6ac6 h1:sCy9B+au7ZXVnVcTPdxMMZuVzlr3/PH11MLKSmbwhdI=
 github.com/kiwiidb/bliksem-library/vouchertemplating v0.0.0-20190810084924-1651a31f6ac6/go.mod h1:9a0x3Ay7j8PmveGGFBW6P1+/gBXhpRzUSFpn+VK4Gpk=
+github.com/kiwiidb/bliksem-library/vouchertemplating v0.0.0-20190812143315-8ba0d69df191 h1:tWfbYy5cXHWWCY1h5a0vS4Yk92Cc+XK+4hlUGn3uJOs=
+github.com/kiwiidb/bliksem-library/vouchertemplating v0.0.0-20190812143315-8ba0d69df191/go.mod h1:9a0x3Ay7j8PmveGGFBW6P1+/gBXhpRzUSFpn+VK4Gpk=
 github.com/koding/multiconfig v0.0.0-20171124222453-69c27309b2d7 h1:SWlt7BoQNASbhTUD0Oy5yysI2seJ7vWuGUp///OM4TM=
 github.com/koding/multiconfig v0.0.0-20171124222453-69c27309b2d7/go.mod h1:Y2SaZf2Rzd0pXkLVhLlCiAXFCLSXAIbTKDivVgff/AM=
 github.com/konsorten/go-windows-terminal-sequences v1.0.1/go.mod h1:T0+1ngSBFLxvqU3pZ+m/2kptfBszLMUkC4ZK/EgS/cQ=
@@ -137,6 +141,8 @@ golang.org/x/sys v0.0.0-20190726091711-fc99dfbffb4e h1:D5TXcfTk7xF7hvieo4QErS3qq
 golang.org/x/sys v0.0.0-20190726091711-fc99dfbffb4e/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
 golang.org/x/sys v0.0.0-20190804053845-51ab0e2deafa h1:KIDDMLT1O0Nr7TSxp8xM5tJcdn8tgyAONntO829og1M=
 golang.org/x/sys v0.0.0-20190804053845-51ab0e2deafa/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
+golang.org/x/sys v0.0.0-20190812073006-9eafafc0a87e h1:TsjK5I7fXk8f2FQrgu6NS7i5Qih3knl2FL1htyguLRE=
+golang.org/x/sys v0.0.0-20190812073006-9eafafc0a87e/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
 golang.org/x/text v0.3.0/go.mod h1:NqM8EUOU14njkJ3fqMW+pc6Ldnwhi/IjpwHt7yyuwOQ=
 golang.org/x/text v0.3.1-0.20180807135948-17ff2d5776d2/go.mod h1:NqM8EUOU14njkJ3fqMW+pc6Ldnwhi/IjpwHt7yyuwOQ=
 golang.org/x/text v0.3.2 h1:tW2bmiBqwgJj/UpqtC8EpXEZVYOwU0yG4iWbprSVAcs=
