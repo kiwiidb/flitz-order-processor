@@ -11,6 +11,7 @@ import (
 func WebhookHandler(w http.ResponseWriter, r *http.Request) {
 	logrus.Infof("%v", r)
 	bbytes, err := ioutil.ReadAll(r.Body)
+	logrus.Info(r.URL.Query())
 	if err != nil {
 		http.Error(w, "something wrong decoding", http.StatusBadRequest)
 	}
