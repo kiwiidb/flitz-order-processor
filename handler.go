@@ -5,12 +5,14 @@ import (
 	"net/http"
 
 	"github.com/kiwiidb/bliksem-library/authentication"
+	"github.com/kiwiidb/bliksem-library/tokendb"
 	"github.com/kiwiidb/bliksem-library/vouchertemplating"
 	"github.com/koding/multiconfig"
 	"github.com/sirupsen/logrus"
 )
 
 var vt *vouchertemplating.VoucherTemplater
+var tdb *tokendb.TokenDB
 
 //Request holds the codes and the name of the template
 //(based on value of the vouchers)
