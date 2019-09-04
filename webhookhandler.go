@@ -49,7 +49,7 @@ func WebhookHandler(w http.ResponseWriter, r *http.Request) {
 	//TODO
 	//1. check Hash from ON
 	//2. add order to tdb, use order id as collection id
-	_, err = tdb.CreateNewBatchOfTokens(whrb.ID, order.Amt, order.Value)
+	_, err = tdb.CreateNewBatchOfTokens(whrb.ID, order.Amt, order.Value, order.Currency, true) //online sold vouchers are always already on
 	if err != nil {
 		logrus.Error(err)
 		http.Error(w, "something wrong decoding", http.StatusBadRequest)
