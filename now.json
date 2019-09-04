@@ -16,7 +16,13 @@
         "VOUCHERTEMPLATER_TEMPLATEFOLDER":"templates",
         "VOUCHERTEMPLATER_TEMPFOLDER":"/tmp",
         "VOUCHERTEMPLATER_UPLOADEDUNZIPFOLDER":"unzipped_vouchers",
-        "VOUCHERTEMPLATER_UPLOADEDZIPFOLDER":"zipped_vouchers"
+        "VOUCHERTEMPLATER_UPLOADEDZIPFOLDER":"zipped_vouchers",
+        "CONFIG_URI": "mongodb+srv://<user>:<password>@cluster0-y9mrc.mongodb.net/test?retryWrites=true&w=majority",
+        "CONFIG_USER": "admin",
+        "CONFIG_PASSWORD": "@mongo-password",
+        "CONFIG_DATABASENAME": "tokendb",
+        "CONFIG_METADATACOLLECTIONNAME": "token_metadata-test"
+
       },
       "routes": [
         { "src": "/store_batch",
