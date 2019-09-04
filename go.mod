@@ -6,6 +6,7 @@ require (
 	cloud.google.com/go v0.44.0 // indirect
 	firebase.google.com/go v3.9.0+incompatible // indirect
 	github.com/google/go-cmp v0.3.1 // indirect
+	github.com/gorilla/schema v1.1.0
 	github.com/kiwiidb/bliksem-library/authentication v0.0.0-20190812143315-8ba0d69df191
 	github.com/kiwiidb/bliksem-library/tokendb v0.0.0-20190825141917-f9c1cc1c5b77
 	github.com/kiwiidb/bliksem-library/vouchertemplating v0.0.0-20190812143315-8ba0d69df191

@@ -1,9 +1,11 @@
 package storageapi
 
 import (
+	"encoding/json"
 	"io/ioutil"
 	"net/http"
 
+	"github.com/gorilla/schema"
 	"github.com/sirupsen/logrus"
 )
 
@@ -25,16 +27,36 @@ type WebHookRequestBody struct {
 func WebhookHandler(w http.ResponseWriter, r *http.Request) {
 	logrus.Infof("%v", r)
 	bbytes, err := ioutil.ReadAll(r.Body)
-	logrus.Info(r.URL.Query())
 	if err != nil {
 		http.Error(w, "something wrong decoding", http.StatusBadRequest)
+		return
 	}
-	logrus.Info(string(bbytes))
-	w.WriteHeader(http.StatusOK)
+	decoder := schema.NewDecoder()
+	order := Order{}
+	whrb := WebHookRequestBody{}
+	err = decoder.Decode(order, r.URL.Query())
+	if err != nil {
+		logrus.Error(err)
+		http.Error(w, "something wrong decoding", http.StatusBadRequest)
+		return
+	}
+	err = json.Unmarshal(bbytes, &whrb)
+	if err != nil {
+		logrus.Error(err)
+		http.Error(w, "something wrong decoding", http.StatusBadRequest)
+		return
+	}
 	//TODO
 	//1. check Hash from ON
-	//2. add order to tdb
+	//2. add order to tdb, use order id as collection id
+	_, err = tdb.CreateNewBatchOfTokens(whrb.ID, order.Amt, order.Value)
+	if err != nil {
+		logrus.Error(err)
+		http.Error(w, "something wrong decoding", http.StatusBadRequest)
+		return
+	}
 	//3. add order to flitz vouchers storage
 	//4. send e-mail to client
+	w.WriteHeader(http.StatusOK)
 	return
 }

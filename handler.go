@@ -28,6 +28,7 @@ type Response struct {
 }
 
 func init() {
+	//init firebase
 	vt = &vouchertemplating.VoucherTemplater{}
 	m := multiconfig.EnvironmentLoader{}
 	err := m.Load(vt)
@@ -37,6 +38,21 @@ func init() {
 	m.PrintEnvs(vt)
 	logrus.Info(vt.FirebaseAdminCredentials)
 	vt.InitFirebase()
+
+	//init database
+	conf := tokendb.Config{}
+	m = multiconfig.EnvironmentLoader{}
+	err = m.Load(&conf)
+	if err != nil {
+		logrus.Fatal(err)
+	}
+	m.PrintEnvs(conf)
+	logrus.Info(conf)
+	err = tdb.Initialize(conf)
+	if err != nil {
+		logrus.Fatal(err)
+	}
+
 }
 
 //StoreVoucherHandler puts vouchers in firebase storage and returns signed url
