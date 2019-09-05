@@ -3,16 +3,16 @@ module github.com/kiwiidb/flitz-storage-api
 go 1.12
 
 require (
-	cloud.google.com/go v0.45.0 // indirect
+	cloud.google.com/go v0.45.1 // indirect
 	firebase.google.com/go v3.9.0+incompatible // indirect
 	github.com/btcsuite/goleveldb v1.0.0 // indirect
 	github.com/google/go-cmp v0.3.1 // indirect
 	github.com/gorilla/schema v1.1.0
 	github.com/jessevdk/go-flags v1.4.0 // indirect
-	github.com/kiwiidb/bliksem-library/authentication v0.0.0-20190904181817-b797b4340eb1
-	github.com/kiwiidb/bliksem-library/tokendb v0.0.0-20190904181817-b797b4340eb1
-	github.com/kiwiidb/bliksem-library/utils v0.0.0-20190904181817-b797b4340eb1
-	github.com/kiwiidb/bliksem-library/vouchertemplating v0.0.0-20190904181817-b797b4340eb1
+	github.com/kiwiidb/bliksem-library/authentication v0.0.0-20190905151333-4fa57329fca5
+	github.com/kiwiidb/bliksem-library/tokendb v0.0.0-20190905151333-4fa57329fca5
+	github.com/kiwiidb/bliksem-library/utils v0.0.0-20190905151333-4fa57329fca5
+	github.com/kiwiidb/bliksem-library/vouchertemplating v0.0.0-20190905151333-4fa57329fca5
 	github.com/kkdai/bstream v1.0.0 // indirect
 	github.com/koding/multiconfig v0.0.0-20171124222453-69c27309b2d7
 	github.com/kr/pty v1.1.8 // indirect
@@ -28,8 +28,9 @@ require (
 	golang.org/x/mobile v0.0.0-20190830201351-c6da95954960 // indirect
 	golang.org/x/net v0.0.0-20190827160401-ba9fcec4b297 // indirect
 	golang.org/x/sys v0.0.0-20190904154756-749cb33beabd // indirect
-	golang.org/x/tools v0.0.0-20190903163617-be0da057c5e3 // indirect
+	golang.org/x/tools v0.0.0-20190905035308-adb45749da8e // indirect
 	google.golang.org/appengine v1.6.2 // indirect
+	google.golang.org/genproto v0.0.0-20190905072037-92dd089d5514 // indirect
 	google.golang.org/grpc v1.23.0 // indirect
 	gopkg.in/check.v1 v1.0.0-20190902080502-41f04d3bba15 // indirect
 	honnef.co/go/tools v0.0.1-2019.2.3 // indirect

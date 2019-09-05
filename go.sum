@@ -9,6 +9,7 @@ cloud.google.com/go v0.44.1/go.mod h1:iSa0KzasP4Uvy3f1mN/7PiObzGgflwredwwASm/v6A
 cloud.google.com/go v0.44.2/go.mod h1:60680Gw3Yr4ikxnPRS/oxxkBccT6SA1yMk63TGekxKY=
 cloud.google.com/go v0.45.0 h1:bALuGBSgE+BD4rxsopAYlqjcwqcQtye6pWG4bC3N/k0=
 cloud.google.com/go v0.45.0/go.mod h1:452BcPOeI9AZfbvDw0Tbo7D32wA+WX9WME8AZwMEDZU=
+cloud.google.com/go v0.45.1/go.mod h1:RpBamKRgapWJb87xiFSdk4g1CME7QZg3uwTez+TSTjc=
 cloud.google.com/go/bigquery v1.0.1/go.mod h1:i/xbL2UlR5RvWAURpBYZTtm/cXjCha9lbfbpx4poX+o=
 cloud.google.com/go/datastore v1.0.0/go.mod h1:LXYbyblFSglQ5pkeyhO+Qmw7ukd3C+pD7TKLgZqpHYE=
 firebase.google.com/go v3.8.1+incompatible h1:A/KMJdcsLq1/miil8tONEbLBmUgOWpdVCLAxMHq0Xbw=
@@ -91,12 +92,15 @@ github.com/kiwiidb/bliksem-library/authentication v0.0.0-20190812143315-8ba0d69d
 github.com/kiwiidb/bliksem-library/authentication v0.0.0-20190812143315-8ba0d69df191/go.mod h1:RvcdITPvS9WgxEANvpBK/tKDeU1Kvlv6+O2flBhisqQ=
 github.com/kiwiidb/bliksem-library/authentication v0.0.0-20190904181817-b797b4340eb1 h1:H4Kow53gUUl4Uyk0D8Y7SvHP2vjYlTpmFSozVBQ4gs8=
 github.com/kiwiidb/bliksem-library/authentication v0.0.0-20190904181817-b797b4340eb1/go.mod h1:RvcdITPvS9WgxEANvpBK/tKDeU1Kvlv6+O2flBhisqQ=
+github.com/kiwiidb/bliksem-library/authentication v0.0.0-20190905151333-4fa57329fca5/go.mod h1:RvcdITPvS9WgxEANvpBK/tKDeU1Kvlv6+O2flBhisqQ=
 github.com/kiwiidb/bliksem-library/tokendb v0.0.0-20190825141917-f9c1cc1c5b77 h1:6WYItvD2ctiHt01NVTzzNhJEDCOxLmpbyJgpw+tPT+Y=
 github.com/kiwiidb/bliksem-library/tokendb v0.0.0-20190825141917-f9c1cc1c5b77/go.mod h1:tJl/vrXsYESjHIexwebD0l2jjm94P/UBCuMhk14UtMg=
 github.com/kiwiidb/bliksem-library/tokendb v0.0.0-20190904181817-b797b4340eb1 h1:Z9DmHHAwqg5CMParV+mQ12lE/QZxhKPLGasKAi+EM6I=
 github.com/kiwiidb/bliksem-library/tokendb v0.0.0-20190904181817-b797b4340eb1/go.mod h1:tJl/vrXsYESjHIexwebD0l2jjm94P/UBCuMhk14UtMg=
+github.com/kiwiidb/bliksem-library/tokendb v0.0.0-20190905151333-4fa57329fca5/go.mod h1:tJl/vrXsYESjHIexwebD0l2jjm94P/UBCuMhk14UtMg=
 github.com/kiwiidb/bliksem-library/utils v0.0.0-20190904181817-b797b4340eb1 h1:n2r8j+3EG/Yic3kNKeiMsxJOTOHpRcRrhR93BwOPDOE=
 github.com/kiwiidb/bliksem-library/utils v0.0.0-20190904181817-b797b4340eb1/go.mod h1:0zHPAKlxVSn5xpzL5V/E2NcSEzvLqkb7QZ6qO5pAxYI=
+github.com/kiwiidb/bliksem-library/utils v0.0.0-20190905151333-4fa57329fca5/go.mod h1:0zHPAKlxVSn5xpzL5V/E2NcSEzvLqkb7QZ6qO5pAxYI=
 github.com/kiwiidb/bliksem-library/vouchertemplating v0.0.0-20190803142440-7228a5923ce5 h1:yKrNjRE2x+Lw4mspCz15XLlydMtNEeiUb5syL7SEKCE=
 github.com/kiwiidb/bliksem-library/vouchertemplating v0.0.0-20190803142440-7228a5923ce5/go.mod h1:9a0x3Ay7j8PmveGGFBW6P1+/gBXhpRzUSFpn+VK4Gpk=
 github.com/kiwiidb/bliksem-library/vouchertemplating v0.0.0-20190810083259-b74bfd204faa h1:noSSBtNBKqTNRS6sjIG1RFdsLzt9+P7U5FZpkpmbWc4=
@@ -107,6 +111,7 @@ github.com/kiwiidb/bliksem-library/vouchertemplating v0.0.0-20190812143315-8ba0d
 github.com/kiwiidb/bliksem-library/vouchertemplating v0.0.0-20190812143315-8ba0d69df191/go.mod h1:9a0x3Ay7j8PmveGGFBW6P1+/gBXhpRzUSFpn+VK4Gpk=
 github.com/kiwiidb/bliksem-library/vouchertemplating v0.0.0-20190904181817-b797b4340eb1 h1:Pa3qrCTr2+l3m1tkQvjQwrNar/uLy3s+N5ka83GPyRs=
 github.com/kiwiidb/bliksem-library/vouchertemplating v0.0.0-20190904181817-b797b4340eb1/go.mod h1:9a0x3Ay7j8PmveGGFBW6P1+/gBXhpRzUSFpn+VK4Gpk=
+github.com/kiwiidb/bliksem-library/vouchertemplating v0.0.0-20190905151333-4fa57329fca5/go.mod h1:9a0x3Ay7j8PmveGGFBW6P1+/gBXhpRzUSFpn+VK4Gpk=
 github.com/kkdai/bstream v0.0.0-20161212061736-f391b8402d23/go.mod h1:J+Gs4SYgM6CZQHDETBtE9HaSEkGmuNXF86RwHhHUvq4=
 github.com/kkdai/bstream v1.0.0/go.mod h1:FDnDOHt5Yx4p3FaHcioFT0QjDOtgUpvjeZqAs+NVZZA=
 github.com/koding/multiconfig v0.0.0-20171124222453-69c27309b2d7 h1:SWlt7BoQNASbhTUD0Oy5yysI2seJ7vWuGUp///OM4TM=
@@ -245,6 +250,7 @@ golang.org/x/tools v0.0.0-20190727173135-db2fa46ec33c/go.mod h1:jcCCGcm9btYwXyDq
 golang.org/x/tools v0.0.0-20190809145639-6d4652c779c4/go.mod h1:b+2E5dAYhXwXZwtnZ6UAqBI28+e2cm9otk0dWdXHAEo=
 golang.org/x/tools v0.0.0-20190816200558-6889da9d5479/go.mod h1:b+2E5dAYhXwXZwtnZ6UAqBI28+e2cm9otk0dWdXHAEo=
 golang.org/x/tools v0.0.0-20190903163617-be0da057c5e3/go.mod h1:b+2E5dAYhXwXZwtnZ6UAqBI28+e2cm9otk0dWdXHAEo=
+golang.org/x/tools v0.0.0-20190905035308-adb45749da8e/go.mod h1:b+2E5dAYhXwXZwtnZ6UAqBI28+e2cm9otk0dWdXHAEo=
 golang.org/x/xerrors v0.0.0-20190717185122-a985d3407aa7/go.mod h1:I/5z698sn9Ka8TeJc9MKroUUfqBBauWjQqLJ2OPfmY0=
 google.golang.org/api v0.4.0/go.mod h1:8k5glujaEP+g9n7WNsDg8QP6cUVNI86fCNMcbazEtwE=
 google.golang.org/api v0.7.0 h1:9sdfJOzWlkqPltHAuzT2Cp+yrBeY1KRVYgms8soxMwM=
@@ -269,6 +275,7 @@ google.golang.org/genproto v0.0.0-20190801165951-fa694d86fc64 h1:iKtrH9Y8mcbADOP
 google.golang.org/genproto v0.0.0-20190801165951-fa694d86fc64/go.mod h1:DMBHOl98Agz4BDEuKkezgsaosCRResVns1a3J2ZsMNc=
 google.golang.org/genproto v0.0.0-20190819201941-24fa4b261c55 h1:gSJIx1SDwno+2ElGhA4+qG2zF97qiUzTM+rQ0klBOcE=
 google.golang.org/genproto v0.0.0-20190819201941-24fa4b261c55/go.mod h1:DMBHOl98Agz4BDEuKkezgsaosCRResVns1a3J2ZsMNc=
+google.golang.org/genproto v0.0.0-20190905072037-92dd089d5514/go.mod h1:DMBHOl98Agz4BDEuKkezgsaosCRResVns1a3J2ZsMNc=
 google.golang.org/grpc v1.19.0/go.mod h1:mqu4LbDTu4XGKhr4mRzUsmM4RtVoemTSY81AxZiDr8c=
 google.golang.org/grpc v1.20.1/go.mod h1:10oTOabMzJvdu6/UiuZezV6QK5dSlG84ov/aaiqXj38=
 google.golang.org/grpc v1.21.1/go.mod h1:oYelfM1adQP15Ek0mdvEgi9Df8B9CZIaU1084ijfRaM=
