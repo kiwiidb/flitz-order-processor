@@ -41,7 +41,10 @@ func init() {
 	}
 	m.PrintEnvs(vt)
 	logrus.Info(vt.FirebaseAdminCredentials)
-	vt.InitFirebase()
+	err = vt.InitFirebase()
+	if err != nil {
+		logrus.Fatal(err)
+	}
 
 	//init database
 	tdb := &tokendb.TokenDB{}
