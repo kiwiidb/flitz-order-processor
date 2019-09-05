@@ -31,7 +31,7 @@
                       "Access-Control-Allow-Origin": "*",
                       "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept, Authorization"
           },
-          "dest": "handler.go" 
+          "dest": "adminhandler/handler.go" 
         },
         { "src": "/webhook",
           "headers": {
@@ -39,7 +39,7 @@
                       "Access-Control-Allow-Origin": "*",
                       "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
           },
-          "dest": "webhookhandler.go" 
+          "dest": "orderhandler/webhookhandler.go" 
         },
         { 
           "src": "/",

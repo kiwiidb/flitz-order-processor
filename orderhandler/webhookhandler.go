@@ -1,4 +1,4 @@
-package storageapi
+package orderhandler
 
 import (
 	"encoding/json"
@@ -7,7 +7,10 @@ import (
 	"net/http"
 
 	"github.com/gorilla/schema"
+	"github.com/kiwiidb/bliksem-library/tokendb"
 	"github.com/kiwiidb/bliksem-library/utils"
+	"github.com/kiwiidb/bliksem-library/vouchertemplating"
+	"github.com/koding/multiconfig"
 	"github.com/sirupsen/logrus"
 )
 
@@ -23,6 +26,37 @@ type Order struct {
 type WebHookRequestBody struct {
 	HashedOrder string
 	ID          string
+}
+
+var vt *vouchertemplating.VoucherTemplater
+var tdb *tokendb.TokenDB
+
+func init() {
+	//init firebase
+	vt = &vouchertemplating.VoucherTemplater{}
+	m := multiconfig.EnvironmentLoader{}
+	err := m.Load(vt)
+	if err != nil {
+		logrus.Fatal(err)
+	}
+	m.PrintEnvs(vt)
+	logrus.Info(vt.FirebaseAdminCredentials)
+	vt.InitFirebase()
+
+	//init database
+	conf := tokendb.Config{}
+	m = multiconfig.EnvironmentLoader{}
+	err = m.Load(&conf)
+	if err != nil {
+		logrus.Fatal(err)
+	}
+	m.PrintEnvs(conf)
+	logrus.Info(conf)
+	err = tdb.Initialize(conf)
+	if err != nil {
+		logrus.Fatal(err)
+	}
+
 }
 
 //WebhookHandler to be called by Opennode

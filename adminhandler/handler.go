@@ -1,4 +1,4 @@
-package storageapi
+package adminhandler
 
 import (
 	"encoding/json"
