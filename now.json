@@ -1,6 +1,6 @@
 {
     "version": 2,
-    "builds": [{ "src": "*.go", "use": "@now/go" }],
+    "builds": [{ "src": "*/*.go", "use": "@now/go" }],
     "build": {
       "env": {
         "GIT_CREDENTIALS": "@git-credentials"
