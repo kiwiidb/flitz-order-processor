@@ -47,7 +47,7 @@ func init() {
 	}
 
 	//init database
-	tdb := &tokendb.TokenDB{}
+	tdb = &tokendb.TokenDB{}
 	conf := tokendb.Config{}
 	m = multiconfig.EnvironmentLoader{}
 	err = m.Load(&conf)
