@@ -111,6 +111,13 @@ func WebhookHandler(w http.ResponseWriter, r *http.Request) {
 		}
 		formattedCodes = append(formattedCodes, toAppend)
 	}
+	templateFilename := fmt.Sprintf("voucher_%d.png", order.Value)
+	err = vt.DownloadTemplate(templateFilename)
+	if err != nil {
+		logrus.Error(err)
+		http.Error(w, "something wrong decoding", http.StatusBadRequest)
+		return
+	}
 	var storageURL string
 	if order.Amt > 1 {
 		storageURL, err = vt.CreateAndUploadZipFromCodes(formattedCodes, whrb.ID)
