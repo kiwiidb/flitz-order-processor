@@ -21,7 +21,7 @@
         "CONFIG_USER": "admin",
         "CONFIG_PASSWORD": "@mongo-password",
         "CONFIG_DATABASENAME": "tokendb",
-        "CONFIG_METADATACOLLECTIONNAME": "token_metadata-test"
+        "CONFIG_METADATACOLLECTIONNAME": "token_metadata-production"
 
       },
       "routes": [
