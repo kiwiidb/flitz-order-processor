@@ -71,7 +71,7 @@ func WebhookHandler(w http.ResponseWriter, r *http.Request) {
 	decoder := schema.NewDecoder()
 	order := Order{}
 	whrb := WebHookRequestBody{}
-	err = decoder.Decode(order, r.URL.Query())
+	err = decoder.Decode(&order, r.URL.Query())
 	if err != nil {
 		logrus.Error(err)
 		http.Error(w, "something wrong decoding", http.StatusBadRequest)
