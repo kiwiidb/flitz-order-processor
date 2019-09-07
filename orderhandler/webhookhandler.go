@@ -7,6 +7,7 @@ import (
 	"net/http"
 
 	"github.com/gorilla/schema"
+	"github.com/kiwiidb/bliksem-library/opennode"
 	"github.com/kiwiidb/bliksem-library/tokendb"
 	"github.com/kiwiidb/bliksem-library/utils"
 	"github.com/kiwiidb/bliksem-library/vouchertemplating"
@@ -30,6 +31,7 @@ type WebHookRequestBody struct {
 
 var vt *vouchertemplating.VoucherTemplater
 var tdb *tokendb.TokenDB
+var on *opennode.OpenNode
 
 func init() {
 	//init firebase
@@ -57,6 +59,11 @@ func init() {
 	m.PrintEnvs(conf)
 	logrus.Info(conf)
 	err = tdb.Initialize(conf)
+	if err != nil {
+		logrus.Fatal(err)
+	}
+	err = m.Load(&on)
+	m.PrintEnvs(on)
 	if err != nil {
 		logrus.Fatal(err)
 	}
@@ -88,6 +95,12 @@ func WebhookHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	//TODO
 	//1. check Hash from ON
+	if !utils.ValidMAC([]byte(whrb.ID), []byte(whrb.HashedOrder), []byte(on.APIKey)) {
+		//invalid
+		logrus.Error(fmt.Errorf("webhook called with wrong token %v %v", whrb, r))
+		http.Error(w, "something wrong decoding", http.StatusBadRequest)
+		return
+	}
 	_, err = tdb.CreateNewBatchOfTokens(whrb.ID, order.Amt, order.Value, order.Currency, true) //online sold vouchers are always already on
 	if err != nil {
 		logrus.Error(err)
