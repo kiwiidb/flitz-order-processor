@@ -22,7 +22,7 @@
         "CONFIG_PASSWORD": "@mongo-password",
         "CONFIG_DATABASENAME": "tokendb",
         "CONFIG_METADATACOLLECTIONNAME": "token_metadata-production",
-        "CONFIG_OPENNODEAPIKEY": "@opennode-read-apikey-production",
+        "OPENNODE_APIKEY": "@opennode-read-apikey-production",
         "MAILSENDER_FROMADDRESS": "noreply@flitz.cards",
         "MAILSENDER_MAILSERVER": "smtp.gmail.com",
         "MAILSENDER_MAILSERVERPASSWORD": "@gmail-password",

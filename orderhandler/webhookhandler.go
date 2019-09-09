@@ -64,6 +64,7 @@ func init() {
 	if err != nil {
 		logrus.Fatal(err)
 	}
+	m = multiconfig.EnvironmentLoader{}
 	err = m.Load(on)
 	m.PrintEnvs(on)
 	if err != nil {
