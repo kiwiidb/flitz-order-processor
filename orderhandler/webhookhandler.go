@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"os"
 	"path"
 
 	"github.com/gorilla/schema"
@@ -64,12 +65,8 @@ func init() {
 	if err != nil {
 		logrus.Fatal(err)
 	}
-	m = multiconfig.EnvironmentLoader{}
-	err = m.Load(on)
-	m.PrintEnvs(on)
-	if err != nil {
-		logrus.Fatal(err)
-	}
+	//TODO deftige init voor alle library functions
+	on.APIKey = os.Getenv("OPENNODE_APIKEY")
 
 	ms.Init()
 
