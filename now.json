@@ -22,7 +22,13 @@
         "CONFIG_PASSWORD": "@mongo-password",
         "CONFIG_DATABASENAME": "tokendb",
         "CONFIG_METADATACOLLECTIONNAME": "token_metadata-production",
-        "CONFIG_OPENNODEAPIKEY": "@opennode-apikey-production"
+        "CONFIG_OPENNODEAPIKEY": "@opennode-apikey-production",
+        "MAILSENDER_FROMADDRESS": "noreply@flitz.cards",
+        "MAILSENDER_MAILSERVER": "smtp.gmail.com",
+        "MAILSENDER_MAILSERVERPASSWORD": "@gmail-password",
+        "MAILSENDER_MAILSERVERPORT": "587",
+        "MAILSENDER_MAILSERVERUSERNAME": "flitz.gift.cards@gmail.com",
+        "MAILSENDER_SUBJECT": "Flitz Gift Card"
 
       },
       "routes": [
