@@ -27,6 +27,14 @@ type Order struct {
 type WebHookRequestBody struct {
 	HashedOrder string `schema:"hashed_order"`
 	ID          string `schema:"id"`
+	CallBackURL string `schema:"callback_url"`
+	SuccesURL   string `schema:"success_url"`
+	Status      string `schema:"status"`
+	OrderID     string `schema:"order_id"`
+	Description string `schema:"description"`
+	Price       string `schema:"price"`
+	Fee         string `schema:"fee"`
+	AutoSettle  string `schema:"auto_settle"`
 }
 
 var vt *vouchertemplating.VoucherTemplater
