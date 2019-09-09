@@ -96,6 +96,7 @@ func WebhookHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "something wrong decoding", http.StatusBadRequest)
 		return
 	}
+	logrus.Info(string(bbytes))
 	if !utils.ValidMAC([]byte(whrb.ID), []byte(whrb.HashedOrder), []byte(on.APIKey)) {
 		//invalid
 		logrus.Error(fmt.Errorf("webhook called with wrong token %v %v", whrb, r))
