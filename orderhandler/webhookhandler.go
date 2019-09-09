@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"path"
 
 	"github.com/gorilla/schema"
 	"github.com/kiwiidb/bliksem-library/opennode"
@@ -32,6 +33,7 @@ type WebHookRequestBody struct {
 var vt *vouchertemplating.VoucherTemplater
 var tdb *tokendb.TokenDB
 var on *opennode.OpenNode
+var ms *utils.MailSender
 
 func init() {
 	//init firebase
@@ -67,6 +69,8 @@ func init() {
 	if err != nil {
 		logrus.Fatal(err)
 	}
+
+	ms.Init()
 
 }
 
@@ -145,8 +149,29 @@ func WebhookHandler(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 	}
-	logrus.Info(storageURL)
-	//4. send e-mail to client
+	localFile := fmt.Sprintf("/tmp/%s", path.Base(storageURL))
+	err = ms.DownloadVoucher(storageURL, localFile)
+	if err != nil {
+		logrus.Error(err)
+		http.Error(w, "something wrong ", http.StatusInternalServerError)
+		return
+	}
+	err = ms.SendMail(order.Email, emailBody, localFile)
+	if err != nil {
+		logrus.Error(err)
+		http.Error(w, "something wrong ", http.StatusInternalServerError)
+		return
+	}
 	w.WriteHeader(http.StatusOK)
 	return
 }
+
+var emailBody = `
+Hello there!
+You have received a Flitz voucher. 
+Use your favourite LNURL-enabled wallet to redeem it.
+
+Kind regards,
+
+The Flitz team.
+`
