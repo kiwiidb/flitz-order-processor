@@ -66,8 +66,9 @@ func init() {
 		logrus.Fatal(err)
 	}
 	//TODO deftige init voor alle library functions
+	on = &opennode.OpenNode{}
 	on.APIKey = os.Getenv("OPENNODE_APIKEY")
-
+	ms = &utils.MailSender{}
 	ms.Init()
 
 }
