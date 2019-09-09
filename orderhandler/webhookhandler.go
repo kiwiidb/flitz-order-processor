@@ -27,8 +27,8 @@ type Order struct {
 
 //WebHookRequestBody to check authenticity of OpenNode request
 type WebHookRequestBody struct {
-	HashedOrder string
-	ID          string
+	HashedOrder string `json:"hashed_order"`
+	ID          string `json:"id"`
 }
 
 var vt *vouchertemplating.VoucherTemplater
