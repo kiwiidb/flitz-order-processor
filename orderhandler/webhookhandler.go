@@ -64,7 +64,7 @@ func init() {
 	if err != nil {
 		logrus.Fatal(err)
 	}
-	err = m.Load(&on)
+	err = m.Load(on)
 	m.PrintEnvs(on)
 	if err != nil {
 		logrus.Fatal(err)
