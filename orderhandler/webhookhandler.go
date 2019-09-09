@@ -1,9 +1,7 @@
 package orderhandler
 
 import (
-	"encoding/json"
 	"fmt"
-	"io/ioutil"
 	"net/http"
 	"os"
 	"path"
@@ -75,23 +73,22 @@ func init() {
 
 //WebhookHandler to be called by Opennode
 func WebhookHandler(w http.ResponseWriter, r *http.Request) {
-	logrus.Infof("%v", r)
-	bbytes, err := ioutil.ReadAll(r.Body)
-	if err != nil {
-		http.Error(w, "something wrong decoding", http.StatusBadRequest)
-		return
-	}
 	decoder := schema.NewDecoder()
 	order := Order{}
 	whrb := WebHookRequestBody{}
-	err = decoder.Decode(&order, r.URL.Query())
+	err := decoder.Decode(&order, r.URL.Query())
 	if err != nil {
 		logrus.Error(err)
 		http.Error(w, "something wrong decoding", http.StatusBadRequest)
 		return
 	}
-	logrus.Info(string(bbytes))
-	err = json.Unmarshal(bbytes, &whrb)
+	err = r.ParseForm()
+	if err != nil {
+		logrus.Error(err)
+		http.Error(w, "something wrong decoding", http.StatusBadRequest)
+		return
+	}
+	err = decoder.Decode(&whrb, r.PostForm)
 	if err != nil {
 		logrus.Error(err)
 		http.Error(w, "something wrong decoding", http.StatusBadRequest)
