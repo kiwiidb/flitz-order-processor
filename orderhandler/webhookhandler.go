@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"net/http"
 	"os"
-	"path"
 
 	"github.com/gorilla/schema"
 	"github.com/kiwiidb/bliksem-library/opennode"
@@ -139,6 +138,7 @@ func WebhookHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	var storageURL string
+	var localFile string
 	if order.Amt > 1 {
 		storageURL, err = vt.CreateAndUploadZipFromCodes(formattedCodes, whrb.ID)
 		if err != nil {
@@ -146,6 +146,7 @@ func WebhookHandler(w http.ResponseWriter, r *http.Request) {
 			http.Error(w, "something wrong decoding", http.StatusBadRequest)
 			return
 		}
+		localFile = "/tmp/voucher.zip"
 	} else {
 		storageURL, err = vt.CreateAndUploadSingleVoucher(formattedCodes[0])
 		if err != nil {
@@ -153,8 +154,8 @@ func WebhookHandler(w http.ResponseWriter, r *http.Request) {
 			http.Error(w, "something wrong decoding", http.StatusBadRequest)
 			return
 		}
+		localFile = "/tmp/voucher.png"
 	}
-	localFile := fmt.Sprintf("/tmp/%s", path.Base(storageURL))
 	err = ms.DownloadVoucher(storageURL, localFile)
 	if err != nil {
 		logrus.Error(err)
