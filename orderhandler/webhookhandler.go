@@ -173,11 +173,11 @@ func WebhookHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 var emailBody = `
-Hello there!
-You have received a Flitz voucher. 
-Use your favourite LNURL-enabled wallet to redeem it.
-
-Kind regards,
-
+Hello there!\n
+You have received a Flitz voucher. \n
+Use your favourite LNURL-enabled wallet to redeem it. \n
+\n
+Kind regards, \n
+\n
 The Flitz team.
 `
