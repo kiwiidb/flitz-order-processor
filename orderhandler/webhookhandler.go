@@ -130,16 +130,17 @@ func WebhookHandler(w http.ResponseWriter, r *http.Request) {
 		}
 		formattedCodes = append(formattedCodes, toAppend)
 	}
-	templateFilename := fmt.Sprintf("voucher_%d.png", order.Value)
-	err = vt.DownloadTemplate(templateFilename)
-	if err != nil {
-		logrus.Error(err)
-		http.Error(w, "something wrong decoding", http.StatusBadRequest)
-		return
-	}
+
 	var storageURL string
 	var localFile string
 	if order.Amt > 1 {
+		templateFilename := fmt.Sprintf("voucher_%d_%s.png", order.Value, order.Currency)
+		err = vt.DownloadTemplate(templateFilename)
+		if err != nil {
+			logrus.Error(err)
+			http.Error(w, "something wrong decoding", http.StatusBadRequest)
+			return
+		}
 		storageURL, err = vt.CreateAndUploadZipFromCodes(formattedCodes, whrb.ID)
 		if err != nil {
 			logrus.Error(err)
@@ -148,6 +149,13 @@ func WebhookHandler(w http.ResponseWriter, r *http.Request) {
 		}
 		localFile = "/tmp/voucher.zip"
 	} else {
+		templateFilename := fmt.Sprintf("voucher_custom.png")
+		err = vt.DownloadTemplate(templateFilename)
+		if err != nil {
+			logrus.Error(err)
+			http.Error(w, "something wrong decoding", http.StatusBadRequest)
+			return
+		}
 		storageURL, err = vt.CreateAndUploadSingleVoucher(formattedCodes[0])
 		if err != nil {
 			logrus.Error(err)
