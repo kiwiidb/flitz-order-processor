@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+	"strings"
 
 	"github.com/gorilla/schema"
 	"github.com/kiwiidb/bliksem-library/opennode"
@@ -170,6 +171,13 @@ func WebhookHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "something wrong ", http.StatusInternalServerError)
 		return
 	}
+	emailBody := ""
+	if len(formattedCodes) == 1 {
+		emailBody = singleEmailBody
+		strings.Replace(emailBody, "TOREPLACE", formattedCodes[0], 1)
+	} else {
+		emailBody = multiEmailBody
+	}
 	err = ms.SendMail(order.Email, emailBody, localFile)
 	if err != nil {
 		logrus.Error(err)
@@ -180,7 +188,31 @@ func WebhookHandler(w http.ResponseWriter, r *http.Request) {
 	return
 }
 
-var emailBody = `
+var singleEmailBody = `
+<DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+Hello there!
+<p>
+You have received a Flitz voucher.
+Use your favourite LNURL-enabled wallet to redeem it.
+You can scan the QR code of the image or click here:
+</p>
+
+<p>
+<a href="lightning:TOREPLACE">Redeem in Wallet</a>
+</p>
+
+<p>
+Kind regards,
+The Flitz team.
+</p>
+</body>
+</html>
+`
+var multiEmailBody = `
 Hello there!
 You have received a Flitz voucher.
 Use your favourite LNURL-enabled wallet to redeem it.
