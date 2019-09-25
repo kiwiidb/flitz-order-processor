@@ -173,8 +173,7 @@ func WebhookHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	emailBody := ""
 	if len(formattedCodes) == 1 {
-		emailBody = singleEmailBody
-		strings.Replace(emailBody, "TOREPLACE", formattedCodes[0], 1)
+		emailBody = strings.Replace(singleEmailBody, "TOREPLACE", formattedCodes[0], 1)
 	} else {
 		emailBody = multiEmailBody
 	}
@@ -191,14 +190,13 @@ func WebhookHandler(w http.ResponseWriter, r *http.Request) {
 var singleEmailBody = `
 <DOCTYPE html>
 <html>
-<head>
-</head>
-<body>
-Hello there!
+<body style="text-align:center">
+<h2>Hello there!</h2>
 <p>
-You have received a Flitz voucher.
+You have received a Flitz voucher for CURRENCY AMOUNT.
 Use your favourite LNURL-enabled wallet to redeem it.
-You can scan the QR code of the image or click here:
+<br>
+You can scan the QR code or click here:
 </p>
 
 <p>
