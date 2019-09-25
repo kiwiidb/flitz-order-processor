@@ -174,6 +174,8 @@ func WebhookHandler(w http.ResponseWriter, r *http.Request) {
 	emailBody := ""
 	if len(formattedCodes) == 1 {
 		emailBody = strings.Replace(singleEmailBody, "TOREPLACE", formattedCodes[0], 1)
+		emailBody = strings.Replace(singleEmailBody, "CURRENCY", order.Currency, 1)
+		emailBody = strings.Replace(singleEmailBody, "AMOUNT", string(order.Value), 1)
 	} else {
 		emailBody = multiEmailBody
 	}
