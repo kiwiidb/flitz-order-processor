@@ -124,6 +124,8 @@ github.com/kiwiidb/bliksem-library/utils v0.0.0-20190909225434-25d390db5732 h1:/
 github.com/kiwiidb/bliksem-library/utils v0.0.0-20190909225434-25d390db5732/go.mod h1:IAYjrY/+tbJoax0JEyXn3GAjLRdnjBf9HR0XLNJRtmw=
 github.com/kiwiidb/bliksem-library/utils v0.0.0-20190926180021-e32b2e824ca6 h1:Ul/dGIjN/RFoAvBdNCVoxBZYlGNjkPBqZRdxUTfIarQ=
 github.com/kiwiidb/bliksem-library/utils v0.0.0-20190926180021-e32b2e824ca6/go.mod h1:IAYjrY/+tbJoax0JEyXn3GAjLRdnjBf9HR0XLNJRtmw=
+github.com/kiwiidb/bliksem-library/utils v0.0.0-20190926211133-f8404e3d3cf1 h1:+IToSb+djUa37aiSpkCflu22v5Td93U1YcVACbCoilY=
+github.com/kiwiidb/bliksem-library/utils v0.0.0-20190926211133-f8404e3d3cf1/go.mod h1:IAYjrY/+tbJoax0JEyXn3GAjLRdnjBf9HR0XLNJRtmw=
 github.com/kiwiidb/bliksem-library/vouchertemplating v0.0.0-20190803142440-7228a5923ce5 h1:yKrNjRE2x+Lw4mspCz15XLlydMtNEeiUb5syL7SEKCE=
 github.com/kiwiidb/bliksem-library/vouchertemplating v0.0.0-20190803142440-7228a5923ce5/go.mod h1:9a0x3Ay7j8PmveGGFBW6P1+/gBXhpRzUSFpn+VK4Gpk=
 github.com/kiwiidb/bliksem-library/vouchertemplating v0.0.0-20190810083259-b74bfd204faa h1:noSSBtNBKqTNRS6sjIG1RFdsLzt9+P7U5FZpkpmbWc4=
