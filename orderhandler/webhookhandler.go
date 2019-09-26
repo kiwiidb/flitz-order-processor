@@ -173,11 +173,17 @@ func WebhookHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	emailBody := ""
 	if len(formattedCodes) == 1 {
-		emailBody = strings.Replace(singleEmailBody, "TOREPLACE", formattedCodes[0], 1)
+		emailBody = strings.Replace(singleEmailBodyTemplate, "TOREPLACE", formattedCodes[0], 1)
 		emailBody = strings.Replace(emailBody, "CURRENCY", order.Currency, 1)
 		emailBody = strings.Replace(emailBody, "AMOUNT", string(order.Value), 1)
 	} else {
 		emailBody = multiEmailBody
+	}
+	emailBody, err = createEmailBody(order, formattedCodes)
+	if err != nil {
+		logrus.Error(err)
+		http.Error(w, "something wrong ", http.StatusInternalServerError)
+		return
 	}
 	err = ms.SendMail(order.Email, emailBody, localFile)
 	if err != nil {
@@ -189,20 +195,46 @@ func WebhookHandler(w http.ResponseWriter, r *http.Request) {
 	return
 }
 
-var singleEmailBody = `
+func createEmailBody(order Order, formattedCodes []string) (string, error) {
+	type EmailBodyInfo struct {
+		Currency string
+		Amount int
+		LNURL string
+	}
+	ebi := EmailBodyInfo {
+		Currency: order.Currency,
+		Amount: order.Amount,
+		LNURL: formattedCodes[0]
+	}
+	if len(formattedCodes) > 0 {
+		return multiEmailBody, nil
+	}
+	tmpl, err := template.New("emailbody").Parse(singleEmailBodyTemplate)
+	if err != nil {
+		return "", err
+	}
+	var bb bytes.Buffer
+	err = tmpl.Execute(&bb, ebi)
+	if err != nil {
+		return "", err
+	}
+	return bb.String(), nil
+}
+
+var singleEmailBodyTemplate = `
 <DOCTYPE html>
 <html>
 <body style="text-align:center">
 <h2>Hello there!</h2>
 <p>
-You have received a Flitz voucher for CURRENCY AMOUNT.
+You have received a Flitz voucher for {{.Currency}} {{.Amount}}.
 Use your favourite LNURL-enabled wallet to redeem it.
 <br>
 You can scan the QR code or click here:
 </p>
 
 <p>
-<a href="lightning:TOREPLACE">Redeem in Wallet</a>
+<a href="lightning:{{.LNURL}}">Redeem in Wallet</a>
 </p>
 
 <p>
