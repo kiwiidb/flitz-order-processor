@@ -54,7 +54,7 @@ func init() {
 	}
 	m.PrintEnvs(vt)
 	logrus.Info(vt.FirebaseAdminCredentials)
-	//err = vt.InitFirebase()
+	err = vt.InitFirebase()
 	if err != nil {
 		logrus.Fatal(err)
 	}
@@ -69,7 +69,7 @@ func init() {
 	}
 	m.PrintEnvs(conf)
 	logrus.Info(conf)
-	//err = tdb.Initialize(conf)
+	err = tdb.Initialize(conf)
 	if err != nil {
 		logrus.Fatal(err)
 	}
@@ -77,7 +77,7 @@ func init() {
 	on = &opennode.OpenNode{}
 	on.APIKey = os.Getenv("OPENNODE_APIKEY")
 	ms = &utils.MailSender{}
-	//ms.Init()
+	ms.Init()
 
 }
 
