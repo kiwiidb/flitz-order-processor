@@ -1,7 +1,9 @@
 package orderhandler
 
 import (
+	"bytes"
 	"fmt"
+	"html/template"
 	"net/http"
 	"os"
 	"strings"
@@ -52,7 +54,7 @@ func init() {
 	}
 	m.PrintEnvs(vt)
 	logrus.Info(vt.FirebaseAdminCredentials)
-	err = vt.InitFirebase()
+	//err = vt.InitFirebase()
 	if err != nil {
 		logrus.Fatal(err)
 	}
@@ -67,7 +69,7 @@ func init() {
 	}
 	m.PrintEnvs(conf)
 	logrus.Info(conf)
-	err = tdb.Initialize(conf)
+	//err = tdb.Initialize(conf)
 	if err != nil {
 		logrus.Fatal(err)
 	}
@@ -75,7 +77,7 @@ func init() {
 	on = &opennode.OpenNode{}
 	on.APIKey = os.Getenv("OPENNODE_APIKEY")
 	ms = &utils.MailSender{}
-	ms.Init()
+	//ms.Init()
 
 }
 
@@ -198,15 +200,15 @@ func WebhookHandler(w http.ResponseWriter, r *http.Request) {
 func createEmailBody(order Order, formattedCodes []string) (string, error) {
 	type EmailBodyInfo struct {
 		Currency string
-		Amount int
-		LNURL string
+		Amount   int
+		LNURL    string
 	}
-	ebi := EmailBodyInfo {
+	ebi := EmailBodyInfo{
 		Currency: order.Currency,
-		Amount: order.Amount,
-		LNURL: formattedCodes[0]
+		Amount:   order.Amt,
+		LNURL:    formattedCodes[0],
 	}
-	if len(formattedCodes) > 0 {
+	if len(formattedCodes) > 1 {
 		return multiEmailBody, nil
 	}
 	tmpl, err := template.New("emailbody").Parse(singleEmailBodyTemplate)
@@ -223,27 +225,43 @@ func createEmailBody(order Order, formattedCodes []string) (string, error) {
 
 var singleEmailBodyTemplate = `
 <DOCTYPE html>
-<html>
-<body style="text-align:center">
-<h2>Hello there!</h2>
-<p>
+<html style="font:Arial;">
+<body style="text-align:center; ">
+<h2 style="font:Arial;">Hello there!</h2>
+<p style="font:Arial;">
 You have received a Flitz voucher for {{.Currency}} {{.Amount}}.
 Use your favourite LNURL-enabled wallet to redeem it.
 <br>
 You can scan the QR code or click here:
 </p>
 
-<p>
-<a href="lightning:{{.LNURL}}">Redeem in Wallet</a>
+<p style="font:Arial;">
+<a class= "button" href="lightning:{{.LNURL}}">Redeem in Wallet</a>
 </p>
 
-<p>
+<p style="font:Arial;">
 Kind regards,
 The Flitz team.
 </p>
 </body>
 </html>
+<style>
+    .button {
+  font: bold 11px Arial;
+  text-decoration: none;
+  background-color: #2c3e50;
+  color: mediumspringgreen;
+  padding: 2px 6px 2px 6px;
+  border-top: 1px solid ;
+  border-right: 1px solid ;
+  border-bottom: 1px solid ;
+  border-left: 1px solid ;
+  border-radius: 25px;
+  border-color: mediumspringgreen;
+}
+</style>
 `
+
 var multiEmailBody = `
 Hello there!
 You have received a Flitz voucher.
