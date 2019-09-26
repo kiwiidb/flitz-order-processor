@@ -6,7 +6,6 @@ import (
 	"html/template"
 	"net/http"
 	"os"
-	"strings"
 
 	"github.com/gorilla/schema"
 	"github.com/kiwiidb/bliksem-library/opennode"
@@ -173,15 +172,7 @@ func WebhookHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "something wrong ", http.StatusInternalServerError)
 		return
 	}
-	emailBody := ""
-	if len(formattedCodes) == 1 {
-		emailBody = strings.Replace(singleEmailBodyTemplate, "TOREPLACE", formattedCodes[0], 1)
-		emailBody = strings.Replace(emailBody, "CURRENCY", order.Currency, 1)
-		emailBody = strings.Replace(emailBody, "AMOUNT", string(order.Value), 1)
-	} else {
-		emailBody = multiEmailBody
-	}
-	emailBody, err = createEmailBody(order, formattedCodes)
+	emailBody, err := createEmailBody(order, formattedCodes)
 	if err != nil {
 		logrus.Error(err)
 		http.Error(w, "something wrong ", http.StatusInternalServerError)
@@ -199,14 +190,16 @@ func WebhookHandler(w http.ResponseWriter, r *http.Request) {
 
 func createEmailBody(order Order, formattedCodes []string) (string, error) {
 	type EmailBodyInfo struct {
-		Currency string
-		Amount   int
-		LNURL    string
+		Currency  string
+		Amount    int
+		LNURL     string
+		RedeemURL string
 	}
 	ebi := EmailBodyInfo{
-		Currency: order.Currency,
-		Amount:   order.Amt,
-		LNURL:    formattedCodes[0],
+		Currency:  order.Currency,
+		Amount:    order.Amt,
+		LNURL:     formattedCodes[0],
+		RedeemURL: ms.RedeemURL,
 	}
 	if len(formattedCodes) > 1 {
 		return multiEmailBody, nil
@@ -236,7 +229,7 @@ You can scan the QR code or click here:
 </p>
 
 <p style="font:Arial;">
-<a class= "button" href="lightning:{{.LNURL}}">Redeem in Wallet</a>
+<a class= "button" href="{{.RedeemURL}}/{{.LNURL}}">Redeem in Wallet</a>
 </p>
 
 <p style="font:Arial;">
