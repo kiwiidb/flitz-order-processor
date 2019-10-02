@@ -124,7 +124,8 @@ func WebhookHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	formattedCodes := []string{}
-	formatString := "https://flitz-api-now.kwintendebacker.now.sh/lnurl-primary/%s/%s"
+	//TODO remove hardcoded string!
+	formatString := "https://api.flitz.cards/lnurl-primary/%s/%s"
 	for _, code := range codes {
 		toAppend, err := utils.EncodeToLNURL(fmt.Sprintf(formatString, whrb.ID, code.ID))
 		if err != nil {
