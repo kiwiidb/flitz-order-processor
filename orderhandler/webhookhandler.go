@@ -6,6 +6,7 @@ import (
 	"html/template"
 	"net/http"
 	"os"
+	"path/filepath"
 
 	"github.com/gorilla/schema"
 	"github.com/kiwiidb/bliksem-library/opennode"
@@ -139,7 +140,7 @@ func WebhookHandler(w http.ResponseWriter, r *http.Request) {
 	var localFile string
 	if order.Amt > 1 {
 		templateFilename := fmt.Sprintf("voucher_%d_%s.png", order.Value, order.Currency)
-		err = vt.DownloadTemplate(templateFilename)
+		err = vt.DownloadTemplate(templateFilename, true)
 		if err != nil {
 			logrus.Error(err)
 			http.Error(w, "something wrong decoding", http.StatusBadRequest)
@@ -207,7 +208,13 @@ func createEmailBody(order Order, formattedCodes []string) (string, error) {
 	if len(formattedCodes) > 1 {
 		return multiEmailBody, nil
 	}
-	tmpl, err := template.New("emailbody").Parse(singleEmailBodyTemplate)
+	singleEmailBodyTemplateFileName := "single_voucher_email_template.html"
+	err := vt.DownloadTemplate(singleEmailBodyTemplateFileName, false)
+	if err != nil {
+		return "", err
+	}
+	fileLocation := filepath.Join(vt.TemplateFolder, singleEmailBodyTemplateFileName)
+	tmpl, err := template.New("emailbody").ParseFiles(fileLocation)
 	if err != nil {
 		return "", err
 	}
@@ -242,6 +249,11 @@ The Flitz team.
 </body>
 </html>
 <style>
+
+body {
+	text-align: center;
+
+}
     .button {
   font: bold 11px Arial;
   text-decoration: none;
