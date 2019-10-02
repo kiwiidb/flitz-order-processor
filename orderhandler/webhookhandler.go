@@ -6,7 +6,6 @@ import (
 	"html/template"
 	"net/http"
 	"os"
-	"path/filepath"
 
 	"github.com/gorilla/schema"
 	"github.com/kiwiidb/bliksem-library/opennode"
@@ -140,7 +139,7 @@ func WebhookHandler(w http.ResponseWriter, r *http.Request) {
 	var localFile string
 	if order.Amt > 1 {
 		templateFilename := fmt.Sprintf("voucher_%d_%s.png", order.Value, order.Currency)
-		err = vt.DownloadTemplate(templateFilename, true)
+		err = vt.DownloadVoucherTemplateAndLoadInMemory(templateFilename)
 		if err != nil {
 			logrus.Error(err)
 			http.Error(w, "something wrong decoding", http.StatusBadRequest)
@@ -155,7 +154,7 @@ func WebhookHandler(w http.ResponseWriter, r *http.Request) {
 		localFile = "/tmp/voucher.zip"
 	} else {
 		templateFilename := fmt.Sprintf("voucher_custom.png")
-		err = vt.DownloadTemplate(templateFilename, true)
+		err = vt.DownloadVoucherTemplateAndLoadInMemory(templateFilename)
 		if err != nil {
 			logrus.Error(err)
 			http.Error(w, "something wrong decoding", http.StatusBadRequest)
@@ -209,12 +208,11 @@ func createEmailBody(order Order, formattedCodes []string) (string, error) {
 		return multiEmailBody, nil
 	}
 	singleEmailBodyTemplateFileName := "single_voucher_email_template.html"
-	err := vt.DownloadTemplate(singleEmailBodyTemplateFileName, false)
+	templateBytes, err := vt.DownloadTemplate(singleEmailBodyTemplateFileName)
 	if err != nil {
 		return "", err
 	}
-	fileLocation := filepath.Join(vt.TemplateFolder, singleEmailBodyTemplateFileName)
-	tmpl, err := template.New("emailbody").ParseFiles(fileLocation)
+	tmpl, err := template.New("emailbody").Parse(templateBytes)
 	if err != nil {
 		return "", err
 	}

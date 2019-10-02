@@ -17,7 +17,7 @@ require (
 	github.com/kiwiidb/bliksem-library/opennode v0.0.0-20190909225434-25d390db5732
 	github.com/kiwiidb/bliksem-library/tokendb v0.0.0-20190909225434-25d390db5732
 	github.com/kiwiidb/bliksem-library/utils v0.0.0-20190926211133-f8404e3d3cf1
-	github.com/kiwiidb/bliksem-library/vouchertemplating v0.0.0-20191002202938-b24020f03838
+	github.com/kiwiidb/bliksem-library/vouchertemplating v0.0.0-20191002212036-37c55ef990c8
 	github.com/kkdai/bstream v1.0.0 // indirect
 	github.com/koding/multiconfig v0.0.0-20171124222453-69c27309b2d7
 	github.com/kr/pty v1.1.8 // indirect

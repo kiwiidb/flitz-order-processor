@@ -158,6 +158,8 @@ github.com/kiwiidb/bliksem-library/vouchertemplating v0.0.0-20190909225434-25d39
 github.com/kiwiidb/bliksem-library/vouchertemplating v0.0.0-20190909225434-25d390db5732/go.mod h1:9a0x3Ay7j8PmveGGFBW6P1+/gBXhpRzUSFpn+VK4Gpk=
 github.com/kiwiidb/bliksem-library/vouchertemplating v0.0.0-20191002202938-b24020f03838 h1:AVDXEwfRJnlhto9DsFtXoPvaIqFePbwygM2FyFJA/54=
 github.com/kiwiidb/bliksem-library/vouchertemplating v0.0.0-20191002202938-b24020f03838/go.mod h1:9a0x3Ay7j8PmveGGFBW6P1+/gBXhpRzUSFpn+VK4Gpk=
+github.com/kiwiidb/bliksem-library/vouchertemplating v0.0.0-20191002212036-37c55ef990c8 h1:ldDe3AvRHTu6cPmuSRPeixk3lX6Im2Ji5EZvIOhTjMg=
+github.com/kiwiidb/bliksem-library/vouchertemplating v0.0.0-20191002212036-37c55ef990c8/go.mod h1:9a0x3Ay7j8PmveGGFBW6P1+/gBXhpRzUSFpn+VK4Gpk=
 github.com/kkdai/bstream v0.0.0-20161212061736-f391b8402d23/go.mod h1:J+Gs4SYgM6CZQHDETBtE9HaSEkGmuNXF86RwHhHUvq4=
 github.com/kkdai/bstream v1.0.0/go.mod h1:FDnDOHt5Yx4p3FaHcioFT0QjDOtgUpvjeZqAs+NVZZA=
 github.com/koding/multiconfig v0.0.0-20171124222453-69c27309b2d7 h1:SWlt7BoQNASbhTUD0Oy5yysI2seJ7vWuGUp///OM4TM=
