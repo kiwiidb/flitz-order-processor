@@ -28,7 +28,7 @@
         "MAILSENDER_MAILSERVERPASSWORD": "@gmail-password",
         "MAILSENDER_MAILSERVERPORT": "587",
         "MAILSENDER_MAILSERVERUSERNAME": "flitz.gift.cards@gmail.com",
-        "MAILSENDER_REDEEMURL": "https://flitz-web.kwintendebacker.now.sh/redeem",
+        "MAILSENDER_REDEEMURL": "https://app.flitz.cards/redeem",
         "MAILSENDER_SUBJECT": "Flitz Gift Card"
 
       },
