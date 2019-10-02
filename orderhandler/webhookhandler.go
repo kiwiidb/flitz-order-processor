@@ -212,7 +212,7 @@ func createEmailBody(order Order, formattedCodes []string) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	tmpl, err := template.New("emailbody").Parse(templateBytes)
+	tmpl, err := template.New("emailbody").Parse(string(templateBytes))
 	if err != nil {
 		return "", err
 	}
