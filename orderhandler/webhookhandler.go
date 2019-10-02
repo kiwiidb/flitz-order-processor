@@ -226,50 +226,6 @@ func createEmailBody(order Order, formattedCodes []string) (string, error) {
 	return bb.String(), nil
 }
 
-var singleEmailBodyTemplate = `
-<DOCTYPE html>
-<html style="font:Arial;">
-<body style="text-align:center; ">
-<h2 style="font:Arial;">Hello there!</h2>
-<p style="font:Arial;">
-You have received a Flitz voucher for {{.Currency}} {{.Amount}}.
-Use your favourite LNURL-enabled wallet to redeem it.
-<br>
-You can scan the QR code or click here:
-</p>
-
-<p style="font:Arial;">
-<a class= "button" href="{{.RedeemURL}}/{{.LNURL}}">Redeem in Wallet</a>
-</p>
-
-<p style="font:Arial;">
-Kind regards,
-The Flitz team.
-</p>
-</body>
-</html>
-<style>
-
-body {
-	text-align: center;
-
-}
-    .button {
-  font: bold 11px Arial;
-  text-decoration: none;
-  background-color: #2c3e50;
-  color: mediumspringgreen;
-  padding: 2px 6px 2px 6px;
-  border-top: 1px solid ;
-  border-right: 1px solid ;
-  border-bottom: 1px solid ;
-  border-left: 1px solid ;
-  border-radius: 25px;
-  border-color: mediumspringgreen;
-}
-</style>
-`
-
 var multiEmailBody = `
 Hello there!
 You have received a Flitz voucher.
