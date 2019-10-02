@@ -155,7 +155,7 @@ func WebhookHandler(w http.ResponseWriter, r *http.Request) {
 		localFile = "/tmp/voucher.zip"
 	} else {
 		templateFilename := fmt.Sprintf("voucher_custom.png")
-		err = vt.DownloadTemplate(templateFilename)
+		err = vt.DownloadTemplate(templateFilename, true)
 		if err != nil {
 			logrus.Error(err)
 			http.Error(w, "something wrong decoding", http.StatusBadRequest)

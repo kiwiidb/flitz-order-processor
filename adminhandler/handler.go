@@ -76,7 +76,7 @@ func StoreVoucherHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Something wrong", http.StatusInternalServerError)
 		return
 	}
-	err = vt.DownloadTemplate(req.TemplateName)
+	err = vt.DownloadTemplate(req.TemplateName, true)
 	if err != nil {
 		logrus.Error(err.Error())
 		http.Error(w, "Something wrong", http.StatusInternalServerError)
