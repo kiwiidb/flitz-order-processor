@@ -153,7 +153,7 @@ func WebhookHandler(w http.ResponseWriter, r *http.Request) {
 			http.Error(w, "something wrong decoding", http.StatusBadRequest)
 			return
 		}
-		localFile = "/tmp/voucher.zip"
+		localFile = "/tmp/vouchers.zip"
 	} else {
 		templateFilename := fmt.Sprintf("voucher_custom.png")
 		err = vt.DownloadVoucherTemplateAndLoadInMemory(templateFilename)
