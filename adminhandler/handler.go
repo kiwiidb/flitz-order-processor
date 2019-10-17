@@ -107,7 +107,7 @@ func AuthCreateVoucherHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	var storageURL string
-	if adminOrder.BatchName > 1 {
+	if adminOrder.Amt > 1 {
 		templateFilename := fmt.Sprintf("voucher_custom.png")
 		err = vt.DownloadVoucherTemplateAndLoadInMemory(templateFilename)
 		if err != nil {
