@@ -18,11 +18,11 @@ import (
 
 //Order some vouchers
 type Order struct {
-	RealValue int
-	Price     int // RealValue and Price are sometimes different
-	Amt       int
-	Currency  string
-	Email     string
+	Value    int
+	Price    int // RealValue and Price are sometimes different
+	Amt      int
+	Currency string
+	Email    string
 }
 
 //WebHookRequestBody to check authenticity of OpenNode request
@@ -112,7 +112,7 @@ func WebhookHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	logrus.WithField("whrb", whrb).Info("Starting to process order")
-	_, err = tdb.CreateNewBatchOfTokens(whrb.ID, order.Amt, order.RealValue, order.Currency, true) //online sold vouchers are always already on
+	_, err = tdb.CreateNewBatchOfTokens(whrb.ID, order.Amt, order.Value, order.Currency, true) //online sold vouchers are always already on
 	if err != nil {
 		logrus.Error(err)
 		http.Error(w, "something wrong decoding", http.StatusBadRequest)
@@ -208,7 +208,7 @@ func createEmailBody(order Order, formattedCodes []string) (string, error) {
 		emailBodyTemplateFileName = "single_voucher_email_template.html"
 		ebi = EmailBodyInfo{
 			Currency:  order.Currency,
-			Amount:    order.RealValue,
+			Amount:    order.Value,
 			LNURL:     formattedCodes[0],
 			RedeemURL: ms.RedeemURL,
 		}
@@ -216,7 +216,7 @@ func createEmailBody(order Order, formattedCodes []string) (string, error) {
 		emailBodyTemplateFileName = "multiple_voucher_email_template.html"
 		ebi = EmailBodyInfo{
 			Currency: order.Currency,
-			Amount:   order.RealValue,
+			Amount:   order.Value,
 			Number:   order.Amt,
 		}
 	}
