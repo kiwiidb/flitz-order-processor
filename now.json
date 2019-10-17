@@ -1,6 +1,6 @@
 {
     "version": 2,
-    "builds": [{ "src": "*/*.go", "use": "@now/go" }],
+    "builds": [{ "src": "*/handler.go", "use": "@now/go" }],
     "build": {
       "env": {
         "GIT_CREDENTIALS": "@git-credentials"
@@ -47,7 +47,7 @@
                       "Access-Control-Allow-Origin": "*",
                       "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
           },
-          "dest": "orderhandler/webhookhandler.go" 
+          "dest": "orderhandler/handler.go" 
         },
         { 
           "src": "/",

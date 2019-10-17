@@ -193,23 +193,34 @@ func WebhookHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func createEmailBody(order Order, formattedCodes []string) (string, error) {
+	isSingleVoucher := (len(formattedCodes) == 1)
 	type EmailBodyInfo struct {
 		Currency  string
 		Amount    int
 		LNURL     string
 		RedeemURL string
+		Number    int
 	}
-	ebi := EmailBodyInfo{
-		Currency:  order.Currency,
-		Amount:    order.Amt,
-		LNURL:     formattedCodes[0],
-		RedeemURL: ms.RedeemURL,
+	var ebi EmailBodyInfo
+	var emailBodyTemplateFileName string
+	if isSingleVoucher {
+		emailBodyTemplateFileName = "single_voucher_email_template.html"
+		ebi = EmailBodyInfo{
+			Currency:  order.Currency,
+			Amount:    order.Value,
+			LNURL:     formattedCodes[0],
+			RedeemURL: ms.RedeemURL,
+		}
+	} else {
+		emailBodyTemplateFileName = "multiple_voucher_email_template.html"
+		ebi = EmailBodyInfo{
+			Currency: order.Currency,
+			Amount:   order.Value,
+			Number:   order.Amt,
+		}
 	}
-	if len(formattedCodes) > 1 {
-		return multiEmailBody, nil
-	}
-	singleEmailBodyTemplateFileName := "single_voucher_email_template.html"
-	templateBytes, err := vt.DownloadTemplate(singleEmailBodyTemplateFileName)
+
+	templateBytes, err := vt.DownloadTemplate(emailBodyTemplateFileName)
 	if err != nil {
 		return "", err
 	}
@@ -224,11 +235,3 @@ func createEmailBody(order Order, formattedCodes []string) (string, error) {
 	}
 	return bb.String(), nil
 }
-
-var multiEmailBody = `
-Hello there!
-You have received a Flitz voucher.
-Use your favourite LNURL-enabled wallet to redeem it.
-Kind regards,
-The Flitz team.
-`
