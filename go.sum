@@ -132,6 +132,8 @@ github.com/kiwiidb/bliksem-library/tokendb v0.0.0-20191017115155-38aa10a6dad0 h1
 github.com/kiwiidb/bliksem-library/tokendb v0.0.0-20191017115155-38aa10a6dad0/go.mod h1:tJl/vrXsYESjHIexwebD0l2jjm94P/UBCuMhk14UtMg=
 github.com/kiwiidb/bliksem-library/tokendb v0.0.0-20191017132304-861887bf8bef h1:HYDsP538DomY5Hei3TvsjVkJYZDpY9I0nq6asWlvmjI=
 github.com/kiwiidb/bliksem-library/tokendb v0.0.0-20191017132304-861887bf8bef/go.mod h1:tJl/vrXsYESjHIexwebD0l2jjm94P/UBCuMhk14UtMg=
+github.com/kiwiidb/bliksem-library/tokendb v0.0.0-20191017133918-b88d93feb934 h1:GB9IN9GWpAJNAz5ZLwTA9cMWALh0iT+jVe1lVzv/YzM=
+github.com/kiwiidb/bliksem-library/tokendb v0.0.0-20191017133918-b88d93feb934/go.mod h1:tJl/vrXsYESjHIexwebD0l2jjm94P/UBCuMhk14UtMg=
 github.com/kiwiidb/bliksem-library/utils v0.0.0-20190904181817-b797b4340eb1 h1:n2r8j+3EG/Yic3kNKeiMsxJOTOHpRcRrhR93BwOPDOE=
 github.com/kiwiidb/bliksem-library/utils v0.0.0-20190904181817-b797b4340eb1/go.mod h1:0zHPAKlxVSn5xpzL5V/E2NcSEzvLqkb7QZ6qO5pAxYI=
 github.com/kiwiidb/bliksem-library/utils v0.0.0-20190905151333-4fa57329fca5 h1:GL5qdOTKn5JzyrlZTsKLmYGRop6/aOsIwznOKGLguZ0=
