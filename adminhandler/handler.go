@@ -45,6 +45,7 @@ func init() {
 	//init database
 	tdb = &tokendb.TokenDB{}
 	err = tdb.Initialize()
+	logrus.WithError(err).Error("something wrong here")
 	if err != nil {
 		logrus.Fatal(err)
 	}
