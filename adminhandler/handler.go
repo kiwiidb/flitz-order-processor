@@ -2,10 +2,13 @@ package adminhandler
 
 import (
 	"encoding/json"
+	"fmt"
+	"io/ioutil"
 	"net/http"
 
 	"github.com/kiwiidb/bliksem-library/authentication"
 	"github.com/kiwiidb/bliksem-library/tokendb"
+	"github.com/kiwiidb/bliksem-library/utils"
 	"github.com/kiwiidb/bliksem-library/vouchertemplating"
 	"github.com/koding/multiconfig"
 	"github.com/sirupsen/logrus"
@@ -14,17 +17,17 @@ import (
 var vt *vouchertemplating.VoucherTemplater
 var tdb *tokendb.TokenDB
 
-//Request holds the codes and the name of the template
-//(based on value of the vouchers)
-type Request struct {
-	TemplateName   string
-	Codes          []string
-	CollectionName string
-}
-
 //Response kendet
 type Response struct {
 	URL string
+}
+
+//Order some vouchers
+type AdminOrder struct {
+	Value     int
+	Amt       int
+	Currency  string
+	BatchName string
 }
 
 func init() {
@@ -55,8 +58,8 @@ func init() {
 
 }
 
-//StoreVoucherHandler puts vouchers in firebase storage and returns signed url
-func StoreVoucherHandler(w http.ResponseWriter, r *http.Request) {
+//AuthCreateVoucherHandler puts vouchers in firebase storage and returns signed url
+func AuthCreateVoucherHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	//ugly check for options call
 	if r.Method == http.MethodOptions {
@@ -69,26 +72,72 @@ func StoreVoucherHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Unauthorized", http.StatusUnauthorized)
 		return
 	}
-	req := Request{}
-	err = json.NewDecoder(r.Body).Decode(&req)
+	reqBytes, err := ioutil.ReadAll(r.Body)
 	if err != nil {
-		logrus.Error(err.Error())
-		http.Error(w, "Something wrong", http.StatusInternalServerError)
+		http.Error(w, "Bad request", http.StatusBadRequest)
+	}
+	adminOrder := AdminOrder{}
+	err = json.Unmarshal(reqBytes, &adminOrder)
+	if err != nil {
+		http.Error(w, "Bad request", http.StatusBadRequest)
+	}
+	_, err = tdb.CreateNewBatchOfTokens(adminOrder.BatchName, adminOrder.Amt, adminOrder.Value, adminOrder.Currency, true) //online sold vouchers are always already on
+	if err != nil {
+		logrus.Error(err)
+		http.Error(w, "something wrong decoding", http.StatusBadRequest)
 		return
 	}
-	err = vt.DownloadTemplate(req.TemplateName)
+	codes, err := tdb.GetAllTokensInCollection(adminOrder.BatchName)
 	if err != nil {
-		logrus.Error(err.Error())
-		http.Error(w, "Something wrong", http.StatusInternalServerError)
+		logrus.Error(err)
+		http.Error(w, "something wrong decoding", http.StatusBadRequest)
 		return
 	}
-	url, err := vt.CreateAndUploadZipFromCodes(req.Codes, req.CollectionName)
-	if err != nil {
-		logrus.Error(err.Error())
-		http.Error(w, "Something wrong", http.StatusInternalServerError)
-		return
+	formattedCodes := []string{}
+	//TODO remove hardcoded string!
+	formatString := "https://api.flitz.cards/lnurl-primary/%s/%s"
+	for _, code := range codes {
+		toAppend, err := utils.EncodeToLNURL(fmt.Sprintf(formatString, adminOrder.BatchName, code.ID))
+		if err != nil {
+			logrus.Error(err)
+			http.Error(w, "something wrong decoding", http.StatusBadRequest)
+			return
+		}
+		formattedCodes = append(formattedCodes, toAppend)
 	}
-	resp, err := json.Marshal(Response{URL: url})
+
+	var storageURL string
+	if adminOrder.Amt > 1 {
+		templateFilename := fmt.Sprintf("voucher_custom.png")
+		err = vt.DownloadVoucherTemplateAndLoadInMemory(templateFilename)
+		if err != nil {
+			logrus.Error(err)
+			http.Error(w, "something wrong decoding", http.StatusBadRequest)
+			return
+		}
+		storageURL, err = vt.CreateAndUploadZipFromCodes(formattedCodes, adminOrder.BatchName)
+		if err != nil {
+			logrus.Error(err)
+			http.Error(w, "something wrong decoding", http.StatusBadRequest)
+			return
+		}
+	} else {
+		templateFilename := fmt.Sprintf("voucher_custom.png")
+		err = vt.DownloadVoucherTemplateAndLoadInMemory(templateFilename)
+		if err != nil {
+			logrus.Error(err)
+			http.Error(w, "something wrong decoding", http.StatusBadRequest)
+			return
+		}
+		storageURL, err = vt.CreateAndUploadSingleVoucher(formattedCodes[0])
+		if err != nil {
+			logrus.Error(err)
+			http.Error(w, "something wrong decoding", http.StatusBadRequest)
+			return
+		}
+	}
+
+	resp, err := json.Marshal(Response{URL: storageURL})
 	if err != nil {
 		logrus.Error(err.Error())
 		http.Error(w, "Something wrong", http.StatusInternalServerError)

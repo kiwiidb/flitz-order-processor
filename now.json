@@ -1,6 +1,6 @@
 {
     "version": 2,
-    "builds": [{ "src": "*/*.go", "use": "@now/go" }],
+    "builds": [{ "src": "*/handler.go", "use": "@now/go" }],
     "build": {
       "env": {
         "GIT_CREDENTIALS": "@git-credentials"
@@ -9,9 +9,9 @@
     "env": {
         "VOUCHERTEMPLATER_FIREBASEADMINCREDENTIALS": "@firebase-credentials",
         "VOUCHERTEMPLATER_GOOGLECLOUDSTORAGEEMAIL":"firebase-adminsdk-zatdh@vue-golang-firebase-test.iam.gserviceaccount.com",
-        "VOUCHERTEMPLATER_QRCODEDIMENSION":"236",
-        "VOUCHERTEMPLATER_QRCODEXCOORDINATE":"278",
-        "VOUCHERTEMPLATER_QRCODEYCOORDINATE":"795",
+        "VOUCHERTEMPLATER_QRCODEDIMENSION":"260",
+        "VOUCHERTEMPLATER_QRCODEXCOORDINATE":"230",
+        "VOUCHERTEMPLATER_QRCODEYCOORDINATE":"745",
         "VOUCHERTEMPLATER_STORAGEBUCKETURL":"vue-golang-firebase-test.appspot.com",
         "VOUCHERTEMPLATER_TEMPLATEFOLDER":"templates",
         "VOUCHERTEMPLATER_TEMPFOLDER":"/tmp",
@@ -28,6 +28,7 @@
         "MAILSENDER_MAILSERVERPASSWORD": "@gmail-password",
         "MAILSENDER_MAILSERVERPORT": "587",
         "MAILSENDER_MAILSERVERUSERNAME": "flitz.gift.cards@gmail.com",
+        "MAILSENDER_REDEEMURL": "https://app.flitz.cards/redeem",
         "MAILSENDER_SUBJECT": "Flitz Gift Card"
 
       },
@@ -46,7 +47,7 @@
                       "Access-Control-Allow-Origin": "*",
                       "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
           },
-          "dest": "orderhandler/webhookhandler.go" 
+          "dest": "orderhandler/handler.go" 
         },
         { 
           "src": "/",
