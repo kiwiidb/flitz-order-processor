@@ -19,7 +19,7 @@ import (
 //Order some vouchers
 type Order struct {
 	Value    int
-	Price    int // RealValue and Price are sometimes different
+	Price    int // Value and Price are sometimes different
 	Amt      int
 	Currency string
 	Email    string
