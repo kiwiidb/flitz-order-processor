@@ -15,7 +15,7 @@ require (
 	github.com/jessevdk/go-flags v1.4.0 // indirect
 	github.com/kiwiidb/bliksem-library/authentication v0.0.0-20190909225434-25d390db5732
 	github.com/kiwiidb/bliksem-library/opennode v0.0.0-20190909225434-25d390db5732
-	github.com/kiwiidb/bliksem-library/tokendb v0.0.0-20191017115155-38aa10a6dad0
+	github.com/kiwiidb/bliksem-library/tokendb v0.0.0-20191017132304-861887bf8bef
 	github.com/kiwiidb/bliksem-library/utils v0.0.0-20190926211133-f8404e3d3cf1
 	github.com/kiwiidb/bliksem-library/vouchertemplating v0.0.0-20191002212036-37c55ef990c8
 	github.com/kkdai/bstream v1.0.0 // indirect
