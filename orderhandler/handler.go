@@ -116,6 +116,11 @@ func WebhookHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "something wrong decoding", http.StatusBadRequest)
 		return
 	}
+	if whrb.Status != "paid" {
+		logrus.WithField("order", order).WithField("whrb", whrb).Info("order not yet paid (on chain needs to confirm or might be underpaid)")
+		w.WriteHeader(http.StatusOK)
+		return
+	}
 	logrus.WithField("whrb", whrb).Info("Starting to process order")
 	_, err = tdb.CreateNewBatchOfTokens(whrb.ID, order.Amt, order.Value, order.Currency, true) //online sold vouchers are always already on
 	if err != nil {
