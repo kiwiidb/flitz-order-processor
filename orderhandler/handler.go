@@ -89,6 +89,7 @@ func init() {
 //WebhookHandler to be called by Opennode
 func WebhookHandler(w http.ResponseWriter, r *http.Request) {
 	decoder := schema.NewDecoder()
+	decoder.IgnoreUnknownKeys(true)
 	order := Order{}
 	whrb := WebHookRequestBody{}
 	err := decoder.Decode(&order, r.URL.Query())
