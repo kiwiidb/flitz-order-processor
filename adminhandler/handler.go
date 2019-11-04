@@ -43,6 +43,7 @@ func init() {
 	vt.InitFirebase()
 
 	//init database
+	tdb := &tokendb.TokenDB{}
 	err = tdb.Initialize()
 	if err != nil {
 		logrus.Fatal(err)
