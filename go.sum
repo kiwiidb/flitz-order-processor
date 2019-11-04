@@ -128,10 +128,6 @@ github.com/kiwiidb/bliksem-library/tokendb v0.0.0-20190907172904-fe1997be4dc6 h1
 github.com/kiwiidb/bliksem-library/tokendb v0.0.0-20190907172904-fe1997be4dc6/go.mod h1:tJl/vrXsYESjHIexwebD0l2jjm94P/UBCuMhk14UtMg=
 github.com/kiwiidb/bliksem-library/tokendb v0.0.0-20190909225434-25d390db5732 h1:mq1EEPo9Kff0+3TjNXsMXJwXiOoTevFxNQouOa5bURs=
 github.com/kiwiidb/bliksem-library/tokendb v0.0.0-20190909225434-25d390db5732/go.mod h1:tJl/vrXsYESjHIexwebD0l2jjm94P/UBCuMhk14UtMg=
-github.com/kiwiidb/bliksem-library/tokendb v0.0.0-20191017115155-38aa10a6dad0 h1:ZxFIiKfSCj5Vq6wBn1a9vCJ1KqPyHAHTCdET6VaYeEM=
-github.com/kiwiidb/bliksem-library/tokendb v0.0.0-20191017115155-38aa10a6dad0/go.mod h1:tJl/vrXsYESjHIexwebD0l2jjm94P/UBCuMhk14UtMg=
-github.com/kiwiidb/bliksem-library/tokendb v0.0.0-20191017132304-861887bf8bef h1:HYDsP538DomY5Hei3TvsjVkJYZDpY9I0nq6asWlvmjI=
-github.com/kiwiidb/bliksem-library/tokendb v0.0.0-20191017132304-861887bf8bef/go.mod h1:tJl/vrXsYESjHIexwebD0l2jjm94P/UBCuMhk14UtMg=
 github.com/kiwiidb/bliksem-library/tokendb v0.0.0-20191017133918-b88d93feb934 h1:GB9IN9GWpAJNAz5ZLwTA9cMWALh0iT+jVe1lVzv/YzM=
 github.com/kiwiidb/bliksem-library/tokendb v0.0.0-20191017133918-b88d93feb934/go.mod h1:tJl/vrXsYESjHIexwebD0l2jjm94P/UBCuMhk14UtMg=
 github.com/kiwiidb/bliksem-library/utils v0.0.0-20190904181817-b797b4340eb1 h1:n2r8j+3EG/Yic3kNKeiMsxJOTOHpRcRrhR93BwOPDOE=
@@ -232,8 +228,8 @@ golang.org/x/crypto v0.0.0-20190909091759-094676da4a83 h1:mgAKeshyNqWKdENOnQsg+8
 golang.org/x/crypto v0.0.0-20190909091759-094676da4a83/go.mod h1:yigFU9vqHzYiE8UmvKecakEJjdnWj3jj499lnFckfCI=
 golang.org/x/crypto v0.0.0-20191002192127-34f69633bfdc h1:c0o/qxkaO2LF5t6fQrT4b5hzyggAkLLlCUjqfRxd8Q4=
 golang.org/x/crypto v0.0.0-20191002192127-34f69633bfdc/go.mod h1:yigFU9vqHzYiE8UmvKecakEJjdnWj3jj499lnFckfCI=
-golang.org/x/crypto v0.0.0-20191011191535-87dc89f01550 h1:ObdrDkeb4kJdCP557AjRjq69pTHfNouLtWZG7j9rPN8=
-golang.org/x/crypto v0.0.0-20191011191535-87dc89f01550/go.mod h1:yigFU9vqHzYiE8UmvKecakEJjdnWj3jj499lnFckfCI=
+golang.org/x/crypto v0.0.0-20191029031824-8986dd9e96cf h1:fnPsqIDRbCSgumaMCRpoIoF2s4qxv0xSSS0BVZUE/ss=
+golang.org/x/crypto v0.0.0-20191029031824-8986dd9e96cf/go.mod h1:LzIPMQfyMNhhGPhUkYOs5KpL4U8rLKemX1yGLhDgUto=
 golang.org/x/exp v0.0.0-20190121172915-509febef88a4/go.mod h1:CJ0aWSM057203Lf6IL+f9T1iT9GByDxfZKAQTCR3kQA=
 golang.org/x/exp v0.0.0-20190306152737-a1d7652674e8/go.mod h1:CJ0aWSM057203Lf6IL+f9T1iT9GByDxfZKAQTCR3kQA=
 golang.org/x/exp v0.0.0-20190510132918-efd6b22b2522/go.mod h1:ZjyILWgesfNpC6sMxTJOJm9Kp84zZh5NQWvqDGG3Qr8=
@@ -315,8 +311,8 @@ golang.org/x/sys v0.0.0-20190909082730-f460065e899a h1:mIzbOulag9/gXacgxKlFVwpCO
 golang.org/x/sys v0.0.0-20190909082730-f460065e899a/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
 golang.org/x/sys v0.0.0-20191002091554-b397fe3ad8ed h1:5TJcLJn2a55mJjzYk0yOoqN8X1OdvBDUnaZaKKyQtkY=
 golang.org/x/sys v0.0.0-20191002091554-b397fe3ad8ed/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
-golang.org/x/sys v0.0.0-20191010194322-b09406accb47 h1:/XfQ9z7ib8eEJX2hdgFTZJ/ntt0swNk5oYBziWeTCvY=
-golang.org/x/sys v0.0.0-20191010194322-b09406accb47/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
+golang.org/x/sys v0.0.0-20191104094858-e8c54fb511f6 h1:ZJUmhYTp8GbGC0ViZRc2U+MIYQ8xx9MscsdXnclfIhw=
+golang.org/x/sys v0.0.0-20191104094858-e8c54fb511f6/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
 golang.org/x/text v0.3.0/go.mod h1:NqM8EUOU14njkJ3fqMW+pc6Ldnwhi/IjpwHt7yyuwOQ=
 golang.org/x/text v0.3.1-0.20180807135948-17ff2d5776d2/go.mod h1:NqM8EUOU14njkJ3fqMW+pc6Ldnwhi/IjpwHt7yyuwOQ=
 golang.org/x/text v0.3.2 h1:tW2bmiBqwgJj/UpqtC8EpXEZVYOwU0yG4iWbprSVAcs=

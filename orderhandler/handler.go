@@ -25,18 +25,30 @@ type Order struct {
 	Email    string
 }
 
+//Transaction contains information about on-chain tx received by opennode
+type Transaction struct {
+	Address       string `schema:"address"`
+	CreatedAt     int    `schema:"created_at"`
+	SettledAt     int    `schema:"settled_at"`
+	TransactionID string `schema:"tx"`
+	Status        string `schema:"status"`
+	Amount        int    `schema:"amount"`
+}
+
 //WebHookRequestBody to check authenticity of OpenNode request
 type WebHookRequestBody struct {
-	HashedOrder string `schema:"hashed_order"`
-	ID          string `schema:"id"`
-	CallBackURL string `schema:"callback_url"`
-	SuccesURL   string `schema:"success_url"`
-	Status      string `schema:"status"`
-	OrderID     string `schema:"order_id"`
-	Description string `schema:"description"`
-	Price       string `schema:"price"`
-	Fee         string `schema:"fee"`
-	AutoSettle  string `schema:"auto_settle"`
+	HashedOrder string        `schema:"hashed_order"`
+	ID          string        `schema:"id"`
+	CallBackURL string        `schema:"callback_url"`
+	SuccesURL   string        `schema:"success_url"`
+	Status      string        `schema:"status"`
+	OrderID     string        `schema:"order_id"`
+	Description string        `schema:"description"`
+	Price       string        `schema:"price"`
+	Fee         string        `schema:"fee"`
+	AutoSettle  string        `schema:"auto_settle"`
+	MissingAmt  int           `schema:"missing_amt"`
+	Transaction []Transaction `schema:"transactions"`
 }
 
 var vt *vouchertemplating.VoucherTemplater
@@ -61,6 +73,7 @@ func init() {
 
 	//init database
 	tdb = &tokendb.TokenDB{}
+	m = multiconfig.EnvironmentLoader{}
 	err = tdb.Initialize()
 	if err != nil {
 		logrus.Fatal(err)
@@ -76,6 +89,7 @@ func init() {
 //WebhookHandler to be called by Opennode
 func WebhookHandler(w http.ResponseWriter, r *http.Request) {
 	decoder := schema.NewDecoder()
+	decoder.IgnoreUnknownKeys(true)
 	order := Order{}
 	whrb := WebHookRequestBody{}
 	err := decoder.Decode(&order, r.URL.Query())
@@ -103,6 +117,11 @@ func WebhookHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "something wrong decoding", http.StatusBadRequest)
 		return
 	}
+	if whrb.Status != "paid" {
+		logrus.WithField("order", order).WithField("whrb", whrb).Info("order not yet paid (on chain needs to confirm or might be underpaid)")
+		w.WriteHeader(http.StatusOK)
+		return
+	}
 	logrus.WithField("whrb", whrb).Info("Starting to process order")
 	_, err = tdb.CreateNewBatchOfTokens(whrb.ID, order.Amt, order.Value, order.Currency, true) //online sold vouchers are always already on
 	if err != nil {
@@ -118,7 +137,7 @@ func WebhookHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	formattedCodes := []string{}
 	//TODO remove hardcoded string!
-	formatString := "https://api.flitz.cards/lnurl-primary/%s/%s"
+	formatString := "https://flitz-api-now-git-dev.kwintendebacker.now.sh/lnurl-primary/%s/%s"
 	for _, code := range codes {
 		toAppend, err := utils.EncodeToLNURL(fmt.Sprintf(formatString, whrb.ID, code.ID))
 		if err != nil {

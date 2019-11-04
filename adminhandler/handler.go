@@ -22,7 +22,7 @@ type Response struct {
 	URL string
 }
 
-//Order some vouchers
+//AdminOrder some vouchers
 type AdminOrder struct {
 	Value     int
 	Amt       int
@@ -43,9 +43,7 @@ func init() {
 	vt.InitFirebase()
 
 	//init database
-	tdb = &tokendb.TokenDB{}
 	err = tdb.Initialize()
-	logrus.WithError(err).Error("something wrong here")
 	if err != nil {
 		logrus.Fatal(err)
 	}
