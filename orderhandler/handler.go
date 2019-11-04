@@ -61,15 +61,8 @@ func init() {
 
 	//init database
 	tdb = &tokendb.TokenDB{}
-	conf := tokendb.Config{}
 	m = multiconfig.EnvironmentLoader{}
-	err = m.Load(&conf)
-	if err != nil {
-		logrus.Fatal(err)
-	}
-	m.PrintEnvs(conf)
-	logrus.Info(conf)
-	err = tdb.Initialize(conf)
+	err = tdb.Initialize()
 	if err != nil {
 		logrus.Fatal(err)
 	}

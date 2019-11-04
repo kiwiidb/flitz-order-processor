@@ -15,7 +15,7 @@ require (
 	github.com/jessevdk/go-flags v1.4.0 // indirect
 	github.com/kiwiidb/bliksem-library/authentication v0.0.0-20190909225434-25d390db5732
 	github.com/kiwiidb/bliksem-library/opennode v0.0.0-20190909225434-25d390db5732
-	github.com/kiwiidb/bliksem-library/tokendb v0.0.0-20190909225434-25d390db5732
+	github.com/kiwiidb/bliksem-library/tokendb v0.0.0-20191017133918-b88d93feb934
 	github.com/kiwiidb/bliksem-library/utils v0.0.0-20190926211133-f8404e3d3cf1
 	github.com/kiwiidb/bliksem-library/vouchertemplating v0.0.0-20191002212036-37c55ef990c8
 	github.com/kkdai/bstream v1.0.0 // indirect
@@ -26,16 +26,16 @@ require (
 	github.com/rogpeppe/go-internal v1.4.0 // indirect
 	github.com/sirupsen/logrus v1.4.2
 	github.com/stretchr/testify v1.4.0 // indirect
-	go.mongodb.org/mongo-driver v1.1.1 // indirect
+	go.mongodb.org/mongo-driver v1.1.2 // indirect
 	go.opencensus.io v0.22.1 // indirect
-	golang.org/x/crypto v0.0.0-20191002192127-34f69633bfdc // indirect
+	golang.org/x/crypto v0.0.0-20191029031824-8986dd9e96cf // indirect
 	golang.org/x/exp v0.0.0-20191002040644-a1355ae1e2c3 // indirect
 	golang.org/x/image v0.0.0-20190910094157-69e4b8554b2a // indirect
 	golang.org/x/lint v0.0.0-20190930215403-16217165b5de // indirect
 	golang.org/x/mobile v0.0.0-20191002175909-6d0d39b2ca82 // indirect
 	golang.org/x/net v0.0.0-20191002035440-2ec189313ef0 // indirect
 	golang.org/x/sync v0.0.0-20190911185100-cd5d95a43a6e // indirect
-	golang.org/x/sys v0.0.0-20191002091554-b397fe3ad8ed // indirect
+	golang.org/x/sys v0.0.0-20191104094858-e8c54fb511f6 // indirect
 	golang.org/x/time v0.0.0-20190921001708-c4c64cad1fd0 // indirect
 	golang.org/x/tools v0.0.0-20191002200745-87e6e099c6fe // indirect
 	google.golang.org/api v0.10.0 // indirect
