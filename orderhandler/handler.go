@@ -25,18 +25,30 @@ type Order struct {
 	Email    string
 }
 
+//Transaction contains information about on-chain tx received by opennode
+type Transaction struct {
+	Address       string `schema:"address"`
+	CreatedAt     int    `schema:"created_at"`
+	SettledAt     int    `schema:"settled_at"`
+	TransactionID string `schema:"tx"`
+	Status        string `schema:"status"`
+	Amount        int    `schema:"amount"`
+}
+
 //WebHookRequestBody to check authenticity of OpenNode request
 type WebHookRequestBody struct {
-	HashedOrder string `schema:"hashed_order"`
-	ID          string `schema:"id"`
-	CallBackURL string `schema:"callback_url"`
-	SuccesURL   string `schema:"success_url"`
-	Status      string `schema:"status"`
-	OrderID     string `schema:"order_id"`
-	Description string `schema:"description"`
-	Price       string `schema:"price"`
-	Fee         string `schema:"fee"`
-	AutoSettle  string `schema:"auto_settle"`
+	HashedOrder string        `schema:"hashed_order"`
+	ID          string        `schema:"id"`
+	CallBackURL string        `schema:"callback_url"`
+	SuccesURL   string        `schema:"success_url"`
+	Status      string        `schema:"status"`
+	OrderID     string        `schema:"order_id"`
+	Description string        `schema:"description"`
+	Price       string        `schema:"price"`
+	Fee         string        `schema:"fee"`
+	AutoSettle  string        `schema:"auto_settle"`
+	MissingAmt  int           `schema:"missing_amt"`
+	Transaction []Transaction `schema:"transactions"`
 }
 
 var vt *vouchertemplating.VoucherTemplater
