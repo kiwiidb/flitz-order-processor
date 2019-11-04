@@ -137,7 +137,7 @@ func WebhookHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	formattedCodes := []string{}
 	//TODO remove hardcoded string!
-	formatString := os.Getenv("LNURL_TEMPLATE")
+	formatString := "https://flitz-api-now-git-dev.kwintendebacker.now.sh/lnurl-primary/%s/%s"
 	for _, code := range codes {
 		toAppend, err := utils.EncodeToLNURL(fmt.Sprintf(formatString, whrb.ID, code.ID))
 		if err != nil {

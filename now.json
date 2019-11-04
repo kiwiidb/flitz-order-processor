@@ -30,7 +30,6 @@
         "MAILSENDER_MAILSERVERUSERNAME": "flitz.gift.cards@gmail.com",
         "MAILSENDER_REDEEMURL": "https://app.flitz.cards/redeem",
         "MAILSENDER_SUBJECT": "Flitz Gift Card",
-        "LNURL_TEMPLATE": "https://flitz-api-now-git-dev.kwintendebacker.now.sh/lnurl-primary/%s/%s"
 
       },
       "routes": [
