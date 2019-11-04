@@ -29,7 +29,7 @@
         "MAILSENDER_MAILSERVERPORT": "587",
         "MAILSENDER_MAILSERVERUSERNAME": "flitz.gift.cards@gmail.com",
         "MAILSENDER_REDEEMURL": "https://app.flitz.cards/redeem",
-        "MAILSENDER_SUBJECT": "Flitz Gift Card",
+        "MAILSENDER_SUBJECT": "Flitz Gift Card"
 
       },
       "routes": [
