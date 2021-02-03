@@ -12,8 +12,6 @@
         "VOUCHERTEMPLATER_QRCODEDIMENSION":"237",
         "VOUCHERTEMPLATER_QRCODEXCOORDINATE":"345",
         "VOUCHERTEMPLATER_QRCODEYCOORDINATE":"165",
-        "VOUCHERTEMPLATER_STORAGEBUCKETURL":"vue-golang-firebase-test.appspot.com",
-        "VOUCHERTEMPLATER_TEMPLATEFOLDER":"templates",
         "VOUCHERTEMPLATER_TEMPFOLDER":"/tmp",
         "VOUCHERTEMPLATER_UPLOADEDZIPFOLDER":"zipped_vouchers",
         "CONFIG_URI": "mongodb+srv://<user>:<password>@cluster0-y9mrc.mongodb.net/test?retryWrites=true&w=majority",

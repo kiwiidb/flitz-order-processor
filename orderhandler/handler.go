@@ -64,6 +64,10 @@ func init() {
 	if err != nil {
 		logrus.Fatal(err)
 	}
+	vt.UploadedUnZipFolder = "unzipped_vouchers"
+	vt.UploadedZipFolder = "zipped_vouchers"
+	vt.StorageBucketURL = "vue-golang-firebase-test.appspot.com"
+	vt.TemplateFolder = "templates"
 	m.PrintEnvs(vt)
 	logrus.Info(vt.FirebaseAdminCredentials)
 	err = vt.InitFirebase()
